@@ -1,4 +1,4 @@
-// Слава Украине
+
 module fifo
     #(
         parameter pBITS  = 8,
