@@ -1,4 +1,3 @@
-
 module fifo
     #(
         parameter pBITS  = 8,
