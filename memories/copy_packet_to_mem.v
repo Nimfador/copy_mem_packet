@@ -3,7 +3,7 @@ module copy_packet_to_mem (
     input wire              i_rst,
     input wire              idv,
     input wire [7:0]        irx_d,
-    input wire [2:0]        iFSM_state,
+    input wire [2:0]        iFSM_state
 
     );
 
