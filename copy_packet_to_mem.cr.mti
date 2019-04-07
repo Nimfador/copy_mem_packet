@@ -8,11 +8,4 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 Top level modules:
 	fifo
 
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/reg_file.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/reg_file.v
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module reg_file
-
-Top level modules:
-	reg_file
-
 } {} {}}
