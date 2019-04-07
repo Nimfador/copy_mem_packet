@@ -29,9 +29,6 @@ module reg_file
         end
     end
 
-    
-
-
     assign or_data = rarray[ir_addr];
 
 endmodule
