@@ -33,7 +33,7 @@ module copy_packet_to_mem
     reg                     r_fifo_wr_en;
     reg                     r_RB_wr_en;
 
-
+-
     fifo
     #(
         .pBITS                  (pFIFO_SIZE),         // pointers widht
