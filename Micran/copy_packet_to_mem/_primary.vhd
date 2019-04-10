@@ -12,7 +12,9 @@ entity copy_packet_to_mem is
         i_rst           : in     vl_logic;
         idv             : in     vl_logic;
         irx_d           : in     vl_logic_vector;
+        irx_er          : in     vl_logic;
         iFSM_state      : in     vl_logic_vector(2 downto 0);
+        ir_addr         : in     vl_logic;
         oempty          : out    vl_logic;
         ofull           : out    vl_logic;
         or_data         : out    vl_logic_vector;

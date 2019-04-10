@@ -1,11 +1,27 @@
-C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v
+C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module copy_packet_to_mem
 
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v
+Top level modules:
+	copy_packet_to_mem
+
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v {0 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module copy_packet_to_mem_tb
+** Error: C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v(5): near "=": syntax error, unexpected '=', expecting '('
+
+} {4.0 5.0} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 -- Compiling module fifo
 
 Top level modules:
 	fifo
+
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/reg_file.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/reg_file.v
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module reg_file
+
+Top level modules:
+	reg_file
 
 } {} {}}
