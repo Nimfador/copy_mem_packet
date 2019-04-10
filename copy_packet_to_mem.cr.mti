@@ -1,11 +1,4 @@
-C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module copy_packet_to_mem
-
-Top level modules:
-	copy_packet_to_mem
-
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v {0 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v
+C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v {0 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 -- Compiling module copy_packet_to_mem_tb
 ** Error: C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v(5): near "=": syntax error, unexpected '=', expecting '('

@@ -1,15 +1,15 @@
 module copy_packet_to_mem 
     #(
-        parameter pFIFO_LENGHT = 4,    // 8  
-                  pRB_WIDHT    = 14,
-                  pFIFO_SIZE   = 16,
-                  pMEM_WIDTH   = 8
+        parameter pFIFO_BITS    = 16,                 // 8  //
+                  pFIFO_WIDHT   = 56,                //
+                  pDATA_WIDTH   = 16,
+                  pDEPTH_RAM    = 3072,
     )
     (
     input wire                          iclk,
     input wire                          i_rst,
     input wire                          idv,
-    input wire [pMEM_WIDTH-1:0]         irx_d,
+    input wire [pDATA_WIDTH-1:0]        irx_d,
     input wire                          irx_er,
     input wire [2:0]                    iFSM_state,
 
@@ -17,20 +17,20 @@ module copy_packet_to_mem
 
     output wire                         oempty,
     output wire                         ofull,
-    output wire [pMEM_WIDTH-1:0]        or_data,
+    output wire [pDATA_WIDTH-1:0]       or_data,
 
     output wire [pFIFO_SIZE-1:0]        olen_pac
 
     );
     
 
-    reg [1:0]               rFSM_state_wr;
-    reg [1:0]               rFSM_state_wr_next;
+    reg [1:0]                           rFSM_state_wr;
+    reg [1:0]                           rFSM_state_wr_next;
 
-    reg [pRB_WIDHT-1:0]     rPointer_to_RBw;            
-    reg [pRB_WIDHT-1:0]     rPointer_to_RBr;
-    reg [pFIFO_SIZE-1:0]    rLenght_of_packet_RB;
-    reg [pRB_WIDHT-1:0]     rLast_RB_addr;
+    reg [$clog2(pDATA_WIDTH)-1:0]       rPointer_to_RBw;            
+    reg [$clog2(pDATA_WIDTH)-1:0]       rPointer_to_RBr;
+    reg [pFIFO_SIZE-1:0]                rLenght_of_packet_RB;
+    reg [$clog2(pDATA_WIDTH)-1:0]                 rLast_RB_addr;
 
     // Memory contol registers
     reg                     r_fifo_r_en;
@@ -42,8 +42,8 @@ module copy_packet_to_mem
 
     fifo
     #(
-        .pBITS                  (pFIFO_SIZE),         // pointers widht
-        .pWIDHT                 (pFIFO_LENGHT)          
+        .pBITS                  (pFIFO_BITS),         // pointers widht
+        .pWIDHT                 (pFIFO_WIDHT)          
     ) lenght_of_packet
     (
         .iclk                   (iclk),
@@ -56,19 +56,18 @@ module copy_packet_to_mem
         .or_data                (olen_pac)
     );
 
-    reg_file
+    sram
     #(
-        .pBITS                  (8),         // 
-        .pWIDHT                 (pRB_WIDHT)   
-    ) round_buffer
+        .DATA_WIDTH             (pDATA_WIDTH), 
+        .DEPTH                  (pDEPTH_RAM)
+    ) ram_for_packets
     (
-        .iclk                   (iclk),
-        .iwr_en                 (r_RB_wr_en),
-        .irst                   (i_rst),
-        .iw_addr                (rPointer_to_RBw),
-        .ir_addr                (rPointer_to_RBr),
-        .iw_data                (irx_d),
-        .or_data                (or_data)
+        .i_clk                  (iclk),
+        .i_addr_wr              (),
+        .i_addr_r               (), 
+        .i_write                (),
+        .i_data                 (),
+        .o_data                 ()
     );
 
     // general FSM for module 
@@ -115,7 +114,5 @@ module copy_packet_to_mem
             2'b10:  rFSM_state_wr_next = 2'b00;
         endcase
     end
-
-    
 
 endmodule
