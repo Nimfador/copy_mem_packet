@@ -14,11 +14,11 @@ module copy_packet_to_mem_tb;
 
     copy_packet_to_mem 
     #(
-        .pFIFO_LENGHT           = 4,    // 8  
-        .pRB_WIDHT              = 14,
-        .pFIFO_SIZE             = 16,
-        .pMEM_WIDTH             = 8
-    )
+        .pFIFO_LENGHT           (),    // 8  
+        .pRB_WIDHT              (),
+        .pFIFO_SIZE             (),
+        .pMEM_WIDTH             ()
+    ) DUt
     (
         .iclk                   (),
         .i_rst                  (),
