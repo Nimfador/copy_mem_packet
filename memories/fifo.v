@@ -16,14 +16,14 @@ module fifo
 
     // signal declaration
 
-    reg [pBITS-1:0] rArray [2**pWIDHT-1:0];
-    reg [pWIDHT-1:0] rW_ptr = '0;
-    reg [pWIDHT-1:0] rW_ptr_next = '0;
-    reg [pWIDHT-1:0] rW_ptr_succ = '0;
+    reg [pBITS-1:0] rArray [pWIDHT-1:0];
+    reg [$clog2(pWIDHT)-1:0] rW_ptr = '0;
+    reg [$clog2(pWIDHT)-1:0] rW_ptr_next = '0;
+    reg [$clog2(pWIDHT)-1:0] rW_ptr_succ = '0;
 
-    reg [pWIDHT-1:0] rR_ptr = '0;
-    reg [pWIDHT-1:0] rR_ptr_next = '0;
-    reg [pWIDHT-1:0] rR_ptr_succ = '0;
+    reg [$clog2(pWIDHT)-1:0] rR_ptr = '0;
+    reg [$clog2(pWIDHT)-1:0] rR_ptr_next = '0;
+    reg [$clog2(pWIDHT)-1:0] rR_ptr_succ = '0;
 
     reg rFull;
     reg rEmpty;
