@@ -20,6 +20,9 @@ entity copy_packet_to_mem is
         ofull           : out    vl_logic;
         or_data         : out    vl_logic_vector;
         olen_pac        : out    vl_logic_vector;
-        onext_last      : out    vl_logic
+        onext_last      : out    vl_logic;
+        obytes_to_read  : out    vl_logic_vector;
+        ofifo_em        : out    vl_logic;
+        ofifo_full      : out    vl_logic
     );
 end copy_packet_to_mem;
