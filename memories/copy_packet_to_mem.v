@@ -1,9 +1,9 @@
 module copy_packet_to_mem 
     #(
-        parameter pFIFO_BITS    = 16,                 // 8  //
-                  pFIFO_WIDHT   = 56,                //
-                  pDATA_WIDTH   = 16,
-                  pDEPTH_RAM    = 3072,
+        parameter pFIFO_WIDTH   = 16,                  // 2 bytes for lenght of packet
+                  pFIFO_DEPTH   = 56,                   // max value of packets of min lenght in memory
+                  pDATA_WIDTH   = 8,                    // same rx_data bus 
+                  pDEPTH_RAM    = 3072,                 // packets of 1536 bytes
     )
     (
     input wire                          iclk,
@@ -19,7 +19,7 @@ module copy_packet_to_mem
     output wire                         ofull,
     output wire [pDATA_WIDTH-1:0]       or_data,
 
-    output wire [pFIFO_SIZE-1:0]        olen_pac
+    output wire [pFIFO_W-1:0]        olen_pac
 
     );
     
@@ -42,8 +42,8 @@ module copy_packet_to_mem
 
     fifo
     #(
-        .pBITS                  (pFIFO_BITS),         // pointers widht
-        .pWIDHT                 (pFIFO_WIDHT)          
+        .pBITS                  (pFIFO_WIDTH),         // pointers widht
+        .pWIDHT                 (pFIFO_DEPTH)          
     ) lenght_of_packet
     (
         .iclk                   (iclk),
