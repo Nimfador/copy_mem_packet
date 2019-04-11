@@ -19,17 +19,24 @@ module copy_packet_to_mem
     output wire                         ofull,
     output wire [pDATA_WIDTH-1:0]       or_data,
 
-    output wire [pFIFO_W-1:0]        olen_pac
+    output wire [pFIFO_WIDTH-1:0]        olen_pac
 
     );
     
 
-    reg [1:0]                           rFSM_state_wr;
-    reg [1:0]                           rFSM_state_wr_next;
+    reg [1:0]                           rWR_state;              // OK
+    reg [1:0]                           rWR_state_next;         // OK
 
-    reg [$clog2(pDATA_WIDTH)-1:0]       rPointer_to_RBw;            
-    reg [$clog2(pDATA_WIDTH)-1:0]       rPointer_to_RBr;
-    reg [pFIFO_SIZE-1:0]                rLenght_of_packet_RB;
+    reg [$clog2(pDATA_WIDTH)-1:0]       rRd_ptr_succ;           // Last successfull pointer            
+    reg [$clog2(pDATA_WIDTH)-1:0]       rRd_ptr_now;
+    reg [$clog2(pDATA_WIDTH)-1:0]       rRd_count;     
+
+    reg [$clog2(pDATA_WIDTH)-1:0]       rWr_ptr_succ;           // Last successfull pointer
+    reg [$clog2(pDATA_WIDTH)-1:0]       rWr_ptr_now;
+    reg [$clog2(pDATA_WIDTH)-1:0]       rWr_count;
+
+
+    reg [pFIFO_WIDTH-1:0]                rLenght_of_packet_RB;
     reg [$clog2(pDATA_WIDTH)-1:0]                 rLast_RB_addr;
 
     // Memory contol registers
@@ -72,47 +79,28 @@ module copy_packet_to_mem
 
     // general FSM for module 
     always @(posedge iclk) begin 
-        case(rFSM_state_wr)
+        case(rWR_state)
             2'b00: begin                 // wait_packet
-                    //rLenght_of_packet_RB <= '0;
-                if (idv & iFSM_state == 3'b011 & !irx_er) begin
-                    rFSM_state_wr <= rFSM_state_wr_next;
-                end
+                   
             end
             2'b01: begin                 // write_packet_to_mem
-                if (!idv & !irx_er)
-                    rFSM_state_wr <= rFSM_state_wr_next;
-                else if (irx_er) rFSM_state_wr <= 2'b00;
-                else begin
-                    rPointer_to_RBw <= rLastRD_addr + rLenght_of_packet_RB;
-                    rLenght_of_packet_RB <= rLenght_of_packet_RB + 1;
-                    r_RB_wr_en <= 1'b1;
-                end
+                
             end
             2'b10: begin                 // check_CRC
-                if (!irx_er & rCRC_true) begin
-                    rFSM_state_wr <= rFSM_state_wr_next;
-                    rCRC_true <= '0;
-                    r_fifo_wr_en <= '0;
-                    rLenght_of_packet_RB <= '0;
-                end
-                else if (!irx_er & !rCRC_true) begin 
-                    rLastRD_addr <= rPointer_to_RBw;
-                    rCRC_true <= '1;
-                    r_fifo_wr_en <= '1;
-                    r_RB_wr_en <= 1'b0;
-                end
-                else rFSM_state_wr <= rFSM_state_wr_next;
+                
             end
         endcase
     end
 
     always @* begin
-        case(rFSM_state_wr)
-            2'b00:  rFSM_state_wr_next = 2'b01;
-            2'b01:  rFSM_state_wr_next = 2'b10;
-            2'b10:  rFSM_state_wr_next = 2'b00;
+        case(rWR_state)
+            2'b00:  rWR_state_next <= 2'b01;
+            2'b01:  rWR_state_next <= 2'b10;
+            2'b10:  rWR_state_next <= 2'b00;
         endcase
     end
 
+    // Read and write pointers check
+    assign oempty = (rWr_ptr_now - rRd_ptr_succ) 
+    assign ofull = 
 endmodule
