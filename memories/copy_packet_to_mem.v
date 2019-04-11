@@ -4,6 +4,7 @@ module copy_packet_to_mem
                   pFIFO_DEPTH   = 56,                   // max value of packets of min lenght in memory
                   pDATA_WIDTH   = 8,                    // same rx_data bus 
                   pDEPTH_RAM    = 3072,                 // packets of 1536 bytes
+                  pMAX_PACKET_LENGHT = 1536
     )
     (
     input wire                          iclk,
@@ -58,8 +59,8 @@ module copy_packet_to_mem
         .ird                    (r_fifo_r_en),                      //    
         .iwr                    (r_fifo_wr_en),                     // 
         .iw_data                (rLenght_of_packet_RB),             // 
-        .oempty                 (oempty),
-        .ofull                  (ofull),
+        .oempty                 (),
+        .ofull                  (),
         .or_data                (olen_pac)
     );
 
@@ -77,7 +78,7 @@ module copy_packet_to_mem
         .o_data                 ()
     );
 
-    // general FSM for module 
+    // Read_dat 
     always @(posedge iclk) begin 
         case(rWR_state)
             2'b00: begin                 // wait_packet
@@ -101,6 +102,9 @@ module copy_packet_to_mem
     end
 
     // Read and write pointers check
-    assign oempty = (rWr_ptr_now - rRd_ptr_succ) 
-    assign ofull = 
+    assign ofull = (((rWr_ptr_succ > rRd_ptr_succ) ? 
+                     (rRd_ptr_succ - rWr_ptr_succ) : 
+                     (rWr_ptr_succ - rRd_ptr_succ)) > 1536) ? 1'b0 : 1'b1;
+    assign oempty = (rWr_ptr_succ == rRd_ptr_succ) ?  1'b1 : 1'b0;
+
 endmodule
