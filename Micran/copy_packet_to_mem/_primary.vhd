@@ -2,10 +2,8 @@ library verilog;
 use verilog.vl_types.all;
 entity copy_packet_to_mem is
     generic(
-        pFIFO_WIDTH     : integer := 16;
-        pFIFO_DEPTH     : integer := 56;
         pDATA_WIDTH     : integer := 8;
-        pDEPTH_RAM      : integer := 3072;
+        pMIN_PACKET_LENGHT: integer := 64;
         pMAX_PACKET_LENGHT: integer := 1536
     );
     port(

@@ -5,15 +5,15 @@ module copy_packet_to_mem_tb;
     wire                    wdv       ;
     wire [7:0]              wrx_d     ;         // 7:0
     wire                    wrx_er    ;
-    wire [7:0]              wFSM_state;
-    reg                     ir_addr   ;
+    wire [2:0]              wFSM_state;
+    reg                     ird_en    = 'b0;
     wire                    oempty         ;
     wire                    ofull          ;
-    wire                    or_data        ;
-    wire                    olen_pac       ;
+    wire [7:0]                    or_data        ;
+    wire [10:0]                   olen_pac       ;
     wire                    onext_last     ;
-    wire                    obytes_to_read; 
-    wire                    ofifo_em    ;   
+    wire [11:0]                   obytes_to_read; 
+    wire                    ofifo_em   ;   
     wire                    ofifo_full ;    
     
     
@@ -21,11 +21,12 @@ module copy_packet_to_mem_tb;
 
     copy_packet_to_mem 
     #(
-        .pFIFO_WIDTH            (16),                  // 2 bytes for lenght of packet
-        .pFIFO_DEPTH            (56),                   // max value of packets of min lenght in memory
-        .pDATA_WIDTH            (8),                    // same rx_data bus 
-        .pDEPTH_RAM             (3072),                 // packets of 1536 bytes
-        .pMAX_PACKET_LENGHT     (1536)
+        .pDATA_WIDTH                  (8),                     
+        .pMIN_PACKET_LENGHT           (64), 
+        .pMAX_PACKET_LENGHT           (1536), 
+        .pFIFO_WIDTH                  (), 
+        .pDEPTH_RAM                   (), 
+        .pFIFO_DEPTH                  () 
     ) DUT
     (
         .iclk                   (iclk),
@@ -63,10 +64,13 @@ module copy_packet_to_mem_tb;
         iclk = 0;
         i_rst = 1; 
         #1 i_rst = 0;
-        #1500 ir_addr = 1; 
-        if (onext_last == 1) ir_addr = 0;
+        #1500 ird_en = 1; 
+        
     end 
 
+    // always begin
+    //     if (onext_last == 1) ird_en = 0;
+    // end
     initial begin
         #5000 $finish;
     end

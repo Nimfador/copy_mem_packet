@@ -1,11 +1,4 @@
-C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.sv
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module copy_packet_to_mem_tb
-
-Top level modules:
-	copy_packet_to_mem_tb
-
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/sram.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/sram.sv
+C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/sram.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/sram.sv
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 -- Compiling module sram
 
@@ -52,6 +45,13 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 
 Top level modules:
 	fifo
+
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.sv
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module copy_packet_to_mem
+
+Top level modules:
+	copy_packet_to_mem
 
 } {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/reg_file.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/reg_file.v
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
