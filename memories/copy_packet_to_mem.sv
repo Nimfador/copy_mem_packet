@@ -22,22 +22,22 @@ module copy_packet_to_mem
 
     output wire [pFIFO_WIDTH-1:0]           olen_pac, 
     output wire                             onext_last,
-    output wire [$clog2(pDATA_WIDTH)-1:0]   obytes_to_read,
+    output wire [$clog2(pDEPTH_RAM)-1:0]   obytes_to_read,
 
     output wire                             ofifo_em,
     output wire                             ofifo_full
     );
     
     reg [1:0]                           rWR_state = 2'b00;              
-    reg [1:0]                           rWR_state_next;         
+    reg [1:0]                           rWR_state_next = 2'b01;         
 
-    reg [$clog2(pDATA_WIDTH)-1:0]       rRd_ptr_succ = '0;           // Last successfull pointer            
-    reg [$clog2(pDATA_WIDTH)-1:0]       rRd_ptr_now  = '0;
-    reg [$clog2(pDATA_WIDTH)-1:0]       rRd_count    = '0;     
+    reg [$clog2(pDEPTH_RAM)-1:0]       rRd_ptr_succ = '0;           // Last successfull pointer            
+    reg [$clog2(pDEPTH_RAM)-1:0]       rRd_ptr_now  = '0;
+    reg [$clog2(pDEPTH_RAM)-1:0]       rRd_count    = '0;     
 
-    reg [$clog2(pDATA_WIDTH)-1:0]       rWr_ptr_succ = '0;           // Last successfull pointer
-    reg [$clog2(pDATA_WIDTH)-1:0]       rWr_ptr_now  = '0;
-    reg [$clog2(pDATA_WIDTH)-1:0]       rWr_count    = '0;
+    reg [$clog2(pDEPTH_RAM)-1:0]       rWr_ptr_succ = '0;           // Last successfull pointer
+    reg [$clog2(pDEPTH_RAM)-1:0]       rWr_ptr_now  = '0;
+    reg [$clog2(pDEPTH_RAM)-1:0]       rWr_count    = '0;
     reg                                 rWr_en       = '0;
 
     reg [$clog2(pDATA_WIDTH)-1:0]                 rLast_RB_addr;
@@ -82,7 +82,7 @@ module copy_packet_to_mem
     always @(posedge iclk) begin 
         case(rWR_state)
             2'b00: begin                 // wait_packet
-                if (idv & (iframe_state == 3'b011) & irx_er) begin
+                if (idv & (iframe_state == 3'b010) & !irx_er) begin
                     rWR_state <= rWR_state_next;
                     rWr_en <= 1'b1;
                 end       

@@ -1,9 +1,9 @@
 module Ethernet_frame_analyzer_tb_w_io(
     input wire                      iclk, 
-    output wire [2:0]               o_fsm_state,
-    output wire [7:0]               o_rx_data,
-    output wire                     o_rx_er,
-    output wire                     o_rx_dv
+    output reg [2:0]               o_fsm_state,
+    output reg [7:0]               o_rx_data,
+    output reg                     o_rx_er,
+    output reg                     o_rx_dv
 );
 
     wire [7:0] wgmii_data;
@@ -11,14 +11,14 @@ module Ethernet_frame_analyzer_tb_w_io(
     
     //reg iclk;
     reg enable;
-    reg reset;
-    reg r_inv_enable;
+    reg reset = 0;
+    reg r_inv_enable = '0;
 
-    wire [2:0]  wfsm_state;
-    wire        o_fsm_state_ch;
-    wire        o_rx_dv_4cd;
-    wire        o_rx_er_4cd;
-    wire [7:0]  o_rx_d4cd;
+    reg [2:0]  wfsm_state;
+    reg        o_fsm_state_ch;
+    reg        o_rx_dv_4cd;
+    reg        o_rx_er_4cd;
+    reg [7:0]  o_rx_d4cd;
 
     wire [7:0]  wgmii_data_inv;
     
@@ -41,12 +41,12 @@ module Ethernet_frame_analyzer_tb_w_io(
         .i_rx_clk               (iclk),
         .i_rx_dv                (wgmii_rx_val),
         .i_rx_er                (reset),
-        .i_rx_d                 (wgmii_data_inv),
-        .o_fsm_state            (wfsm_state),
-        .o_fsm_state_changed    (o_fsm_state),
-        .o_rx_dv_4cd            (o_rx_dv_4cd),
-        .o_rx_er_4cd            (o_rx_er_4cd),
-        .o_rx_d4cd              (o_rx_d4cd)
+        .i_rx_d                 (wgmii_data),
+        .o_fsm_state            (o_fsm_state),
+        .o_fsm_state_changed    (o_fsm_state_ch),
+        .o_rx_dv_4cd            (o_rx_dv),
+        .o_rx_er_4cd            (o_rx_er),
+        .o_rx_d4cd              (o_rx_data)
     );
 
     inverse_data #( .pDATA_WIDTH (8)) data_inv
@@ -59,14 +59,5 @@ module Ethernet_frame_analyzer_tb_w_io(
     
 
     always @(posedge iclk) $display(o_fsm_state);
-
-        
-
-
-    
-    assign  o_fsm_state = wfsm_state;
-    assign  o_rx_data = o_rx_d4cd;
-    assign  o_rx_er = o_rx_er_4cd;
-    assign  o_rx_dv = o_rx_dv_4cd;
 
 endmodule
