@@ -6,7 +6,6 @@ dC:\altera\91sp2\modelsim_ase\examples\work\study\mem_elements
 vcopy_packet_to_mem
 Z0 Mx1 6 sv_std 3 std
 Z1 DXx6 sv_std 3 std 0 22 WnQ=;W1X^o9K1PIQTgInR3
-!s100 TkHVC?XI2Rz:RaUZVQU<g3
 ISaaz;EnI<Ml4k9JM]H5[i2
 Vf<LaX^iCf<_9V_19g=6J42
 S1
@@ -17,11 +16,12 @@ FC:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.sv
 L0 1
 Z3 OV;L;6.5b;42
 r1
-!s85 0
 31
-!s101 -O0
 Z4 !s102 -nocovercells
 Z5 o-work work -sv -nocovercells -O0
+!s100 TkHVC?XI2Rz:RaUZVQU<g3
+!s85 0
+!s101 -O0
 vcopy_packet_to_mem_tb
 Z6 Mx1 6 sv_std 3 std
 R1
@@ -41,6 +41,65 @@ o-work Micran -sv -nocovercells -O0
 !s100 @<<5ADI=1VYa]_1kHNJo=0
 !s85 0
 !s101 -O0
+Xcrc_v_unit
+R6
+R1
+I45L7[@z3k9R4VN?Oi49`J0
+V45L7[@z3k9R4VN?Oi49`J0
+S1
+R2
+w1554590526
+8C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/crc.v
+FC:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/crc.v
+L0 3
+R3
+r1
+31
+R4
+R5
+!s100 ZnYLHhLL6VSV8Pn;z8OLo0
+!s85 0
+!s101 -O0
+vEthernet_frame_analyzer_tb_w_io
+R6
+R1
+!s100 mLbE2Y1R?DAIS0^Sm[V6L1
+Io40leK;IKcQ]L@UWZiCd>1
+VeO5[8SnBj>I@f=NY=91c61
+S1
+R2
+w1555041277
+8C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/Ethernet_frame_analuzer_tb_w_io.sv
+FC:/Users/DES/Documents/GitHub/copy_mem_packet/memories/Ethernet_frame_analuzer_tb_w_io.sv
+L0 1
+R3
+r1
+!s85 0
+31
+!s101 -O0
+R4
+R5
+n@ethernet_frame_analyzer_tb_w_io
+vEthernet_RX_frame_5cd
+R6
+R1
+INY3okS2QF@lk=LY2EEmTN3
+VlDm1X1CBDJZk3zYN38HAj0
+S1
+R2
+w1554590513
+8C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/Ethernet_RX_frame_5cd.sv
+FC:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/Ethernet_RX_frame_5cd.sv
+L0 1
+R3
+r1
+31
+R4
+R5
+n@ethernet_@r@x_frame_5cd
+!s100 AMP98<n_4GIWV<6I2@RFh0
+!s85 0
+!s101 -O0
 vfifo
 IC^Ie9;OI73TRahFU4UAWI3
 VbITIIjXWhl7<IJ18S8<`k1
@@ -55,6 +114,45 @@ r1
 R4
 Z7 o-work Micran -nocovercells -O0
 !s100 4Pl1?cIWnInFiG2fb0=cG0
+!s85 0
+!s101 -O0
+vinverse_data
+R6
+R1
+I@XD3j;GYnDa>BiK8]Db^M1
+VjZ1ZVTG=3aZ?_=FRWHHcG2
+S1
+R2
+w1554590537
+8C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/inverse_data.sv
+FC:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/inverse_data.sv
+L0 3
+R3
+r1
+31
+R4
+R5
+!s100 I45Nec];Tk29M1@4o8b4L3
+!s85 0
+!s101 -O0
+vpcap2gmii
+R6
+R1
+IzYjh6I@>Og6@KnlSNd1Qj1
+Vl4:gXLlmODQT?[liU2c0=3
+S1
+R2
+w1554590548
+8C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/pcap2gmii.sv
+FC:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/pcap2gmii.sv
+Fcrc.v
+L0 9
+R3
+r1
+31
+R4
+R5
+!s100 ?Ld^ZdH;a?PTgLE@i5OF91
 !s85 0
 !s101 -O0
 vreg_file
