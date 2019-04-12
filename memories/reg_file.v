@@ -23,11 +23,11 @@ module reg_file
         if (iwr_en) begin                           // write
             rarray[iw_addr] <= iw_data;    
         end
-        else if (irst) begin
-            for (num_b = 0; num_b < (2**pWIDHT-1); num_b = num_b + 1) begin     // reset
-                rarray[num_b] = '0;
-            end
-        end
+        //else if (irst) begin
+        //    for (num_b = 0; num_b < (2**pWIDHT-1); num_b = num_b + 1) begin     // reset
+        //        rarray[num_b] = '0;
+        //    end
+        //end
     end
 
     

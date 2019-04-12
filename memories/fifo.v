@@ -16,7 +16,7 @@ module fifo
 
     // signal declaration
 
-    reg [pBITS-1:0] rArray [2**pWIDHT-1:0]; // Length of FIFO
+    reg [pBITS-1:0] rArray [0:2**pWIDHT-1]; // Length of FIFO
     reg [pWIDHT-1:0] rW_ptr = '0;
     reg [pWIDHT-1:0] rW_ptr_next = '0;
     reg [pWIDHT-1:0] rW_ptr_succ = '0;
@@ -25,8 +25,8 @@ module fifo
     reg [pWIDHT-1:0] rR_ptr_next = '0;
     reg [pWIDHT-1:0] rR_ptr_succ = '0;
 
-    reg rFull;
-    reg rEmpty;
+    reg rFull  = 1'b0 ;
+    reg rEmpty = 1'b1;
     reg rFull_next;
     reg rEmpty_next;
 
@@ -42,7 +42,7 @@ module fifo
     assign wWr_en = iwr & ~rFull;
 
     // FIFO controll logic 
-    always @(posedge iclk,posedge ireset) begin
+    always @(posedge iclk, posedge ireset) begin
         if (ireset) begin
             rW_ptr <= 0;
             rR_ptr <= 0;
@@ -62,10 +62,10 @@ module fifo
         rW_ptr_succ = rW_ptr + 1;
         rR_ptr_succ = rR_ptr + 1;
         // default keep old values
-        rW_ptr_next = rW_ptr;
-        rR_ptr_next = rR_ptr;
-        rFull_next = rFull;
-        rEmpty_next = rEmpty;
+        //rW_ptr_next = rW_ptr;
+        //rR_ptr_next = rR_ptr;
+        //rFull_next = rFull;
+        //rEmpty_next = rEmpty;
         case ({iwr, ird})
             //2'b00:
             2'b01: begin  // read

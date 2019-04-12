@@ -16,22 +16,23 @@ module ravil_memory (o_FIFO, o_reg, iclk, i_rst, idv, i_error, i_crc, irx_d, iFS
     reg [13:0] r_iw_addr='0;
     reg [13:0] r_ir_addr='0;
     reg [7:0] r_iw_data='0;
-    reg [7:0] r_or_data='0;
+    wire [7:0] r_or_data;
     reg [10:0] r_counter='0; //Calculates lenght of packet
 
     // regs for FIFO memory
     reg r_FIFO_clk;
     reg r_FIFO_ird='0; // Enables FIFO to read
     reg r_FIFO_iwr='0; // Enables FIFO to write
-    reg r_FIFO_oempty='0;
-    reg r_FIFO_ofull='0;
-    reg [10:0] r_FIFO_or_data='0;
+    wire r_FIFO_oempty;
+    wire r_FIFO_ofull;
+    wire [10:0] r_FIFO_or_data;
  
     fifo
     #(
         .pBITS                  (11),         // pointers widht
         .pWIDHT                 (2)           // For storage up to 4 Packet Lenghtes
-    ) length_of_packet
+    ) 
+        length_of_packet
     (
         .iclk                   (iclk),
         .ireset                 (i_rst),
@@ -47,7 +48,8 @@ module ravil_memory (o_FIFO, o_reg, iclk, i_rst, idv, i_error, i_crc, irx_d, iFS
     #(
         .pBITS                  (8),          
         .pWIDHT                 (14)
-    ) memory_for_packet
+    ) 
+        memory_for_packet
     (
         .iclk                   (iclk),
         .iwr_en                 (i_iwr_en),
@@ -62,7 +64,7 @@ module ravil_memory (o_FIFO, o_reg, iclk, i_rst, idv, i_error, i_crc, irx_d, iFS
         if (idv == 1'b1)
             case (iFSM_state)
             3'b000: begin
-            if (i_crc==32'hC704DD7B) begin // Maybe connect to negedge of Data Valid 
+            if (i_crc == 1'b1) begin // Maybe connect to negedge of Data Valid 
                 r_iwr_en<=1'b0;
                 r_FIFO_ird<=1'b0;
                 r_FIFO_iwr<=1'b1;
@@ -74,9 +76,10 @@ module ravil_memory (o_FIFO, o_reg, iclk, i_rst, idv, i_error, i_crc, irx_d, iFS
                     r_counter<='0;
             end
             end
-            3'b001, 3'b010 : begin        r_iwr_en<=1'b0;
-                            r_FIFO_iwr<=1'b0;
-                            r_FIFO_ird<=1'b0;
+            3'b001, 3'b010 : begin        
+                r_iwr_en   <= 1'b0;
+                r_FIFO_iwr <= 1'b0;
+                r_FIFO_ird <= 1'b0;
             end
             default: 
             begin
