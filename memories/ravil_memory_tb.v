@@ -12,7 +12,7 @@ module ravil_memory_tb();
     wire        o_rx_dv_4cd;
     wire [7:0]  o_rx_d4cd;
     wire        o_FR_error;
-    wire        o_crc_correct;
+    wire [31:0] o_crc_correct;
     reg [10:0]  r_FIFO;
     reg [7:0]   r_reg_memory;
 
@@ -29,7 +29,8 @@ module ravil_memory_tb();
         .opkt_cnt       ()
     );
 
-    frame_receiver 
+    frame_receiver
+    module_1 
     (
         .iclk               	(iclk),
         .irx_dv                 (wgmii_rx_val),
@@ -46,7 +47,7 @@ module ravil_memory_tb();
     ravil_memory
     DUT
     (
-        .ick                    (iclk),
+        .iclk                   (iclk),
         .i_rst                  (reset),
         .idv                    (o_rx_dv_4cd),
         .i_error                (o_FR_error),

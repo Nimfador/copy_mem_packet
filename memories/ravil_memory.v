@@ -5,7 +5,7 @@ module ravil_memory (o_FIFO, o_reg, iclk, i_rst, idv, i_error, i_crc, irx_d, iFS
     input wire              i_rst; 
     input wire              idv;
     input wire              i_error;
-    input wire              i_crc;
+    input wire [31:0]       i_crc;
     input wire [7:0]        irx_d;
     input wire [2:0]        iFSM_state;
 
@@ -16,11 +16,9 @@ module ravil_memory (o_FIFO, o_reg, iclk, i_rst, idv, i_error, i_crc, irx_d, iFS
     reg [13:0] r_iw_addr='0;
     reg [13:0] r_ir_addr='0;
     reg [7:0] r_iw_data='0;
-    wire [7:0] r_or_data;
-    reg [10:0] r_counter='0; //Calculates lenght of packet
+        reg [10:0] r_counter='0; //Calculates lenght of packet
 
     // regs for FIFO memory
-    reg r_FIFO_clk;
     reg r_FIFO_ird='0; // Enables FIFO to read
     reg r_FIFO_iwr='0; // Enables FIFO to write
     wire r_FIFO_oempty;
@@ -52,11 +50,11 @@ module ravil_memory (o_FIFO, o_reg, iclk, i_rst, idv, i_error, i_crc, irx_d, iFS
         memory_for_packet
     (
         .iclk                   (iclk),
-        .iwr_en                 (i_iwr_en),
+        .iwr_en                 (r_iwr_en),
         .iw_addr                (r_iw_addr),
         .ir_addr                (r_ir_addr),
-        .iw_data                (r_iw_data),
-        .or_data                (r_or_data)
+        .iw_data                (irx_d),                //Data, incoming to reg
+        .or_data                (o_reg)                 //Output of reg memory
     );
 
     always @(posedge iclk or posedge i_rst)
@@ -64,7 +62,7 @@ module ravil_memory (o_FIFO, o_reg, iclk, i_rst, idv, i_error, i_crc, irx_d, iFS
         if (idv == 1'b1)
             case (iFSM_state)
             3'b000: begin
-            if (i_crc == 1'b1) begin // Maybe connect to negedge of Data Valid 
+            if (i_crc == 32'hC704DD7B) begin // Maybe connect to negedge of Data Valid 
                 r_iwr_en<=1'b0;
                 r_FIFO_ird<=1'b0;
                 r_FIFO_iwr<=1'b1;
@@ -93,6 +91,5 @@ module ravil_memory (o_FIFO, o_reg, iclk, i_rst, idv, i_error, i_crc, irx_d, iFS
         end
         
 assign o_FIFO=r_FIFO_or_data;
-assign o_reg=r_or_data;
              
 endmodule

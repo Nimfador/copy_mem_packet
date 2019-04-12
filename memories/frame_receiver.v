@@ -9,7 +9,7 @@ module frame_receiver (o_state, o_data, o_dv, o_change, o_error, o_rcrc, iclk, i
 	output wire			o_dv;
 	output wire			o_change;
 	output wire			o_error;
-    output wire         o_rcrc;
+    output wire [31:0]  o_rcrc;
 
 `include "crc.v"
 
