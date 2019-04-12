@@ -1,0 +1,25 @@
+C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v {1 {vlog -work work -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module fifo
+
+Top level modules:
+	fifo
+
+} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/reg_file.v {1 {vlog -work work -stats=none {C:\Users\QWr\Documents\GitHub\copy_mem_packet\memories\reg_file.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module reg_file
+
+Top level modules:
+	reg_file
+
+} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v {1 {vlog -work work -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module copy_packet_to_mem
+
+Top level modules:
+	copy_packet_to_mem
+
+} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v {1 {vlog -work work -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem_tb.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+
+} {} {}}

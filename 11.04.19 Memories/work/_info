@@ -1,0 +1,53 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories
+vsram
+Z0 !s110 1554996020
+!i10b 1
+!s100 _lEKCZVR]?8f660_6C?jK0
+IbdhhQ]KD@Z^[n]7Cge]WE2
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+Z2 dC:/Users/QWr/Desktop/Micran/11.04.19 Memories
+w1554995595
+8C:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram.v
+FC:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram.v
+L0 1
+Z3 OV;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1554996020.411000
+!s107 C:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram.v|
+!i113 1
+o-work work
+vsram_tb
+DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+R0
+!i10b 1
+!s100 Yl7@F?Z6]ej71=MMUVj7?1
+ILboh:Oe9GO8l0YR;[edVB1
+R1
+!s105 sram_tb_v_unit
+S1
+R2
+w1554996016
+8C:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram_tb.v
+FC:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram_tb.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1554996020.073000
+!s107 C:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram_tb.v|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram_tb.v|
+!i113 1
+o-work work -sv

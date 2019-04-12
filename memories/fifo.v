@@ -1,7 +1,7 @@
 module fifo
     #(
-        parameter pBITS  = 8,
-                  pWIDHT = 4
+        parameter pBITS  = 8, // Bus of 8 bits
+                  pWIDHT = 4 
     )
     (
         input wire              iclk,
@@ -16,7 +16,7 @@ module fifo
 
     // signal declaration
 
-    reg [pBITS-1:0] rArray [2**pWIDHT-1:0];
+    reg [pBITS-1:0] rArray [2**pWIDHT-1:0]; // Length of FIFO
     reg [pWIDHT-1:0] rW_ptr = '0;
     reg [pWIDHT-1:0] rW_ptr_next = '0;
     reg [pWIDHT-1:0] rW_ptr_succ = '0;

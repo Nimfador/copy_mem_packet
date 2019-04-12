@@ -1,0 +1,15 @@
+{C:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram_tb.v} {1 {vlog -work work -sv -stats=none {C:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram_tb.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module sram_tb
+
+Top level modules:
+	sram_tb
+
+} {} {}} {C:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram.v} {1 {vlog -work work -stats=none {C:/Users/QWr/Desktop/Micran/11.04.19 Memories/sram.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module sram
+
+Top level modules:
+	sram
+
+} {} {}}

@@ -1,3 +1,4 @@
+// Vozmozhno, sdelat' bufer kol'tsevim
 module reg_file
     #(
         parameter               pBITS = 8,

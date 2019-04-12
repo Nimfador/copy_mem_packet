@@ -1,53 +1,66 @@
 m255
 K3
+z0
 13
 cModel Technology
 dC:\altera\91sp2\modelsim_ase\examples\work\study\mem_elements
 vcopy_packet_to_mem
-IEPCaXUFJkU181KOI7MPgZ1
-V5Zo24aJ0kUd:UO2mS_4PI0
-Z0 dC:\Users\DES\Documents\GitHub\copy_mem_packet
-w1554600534
-8C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v
-FC:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v
+Z0 !s110 1554626866
+!i10b 1
+!s100 8inDmDG7]SmogK]]DRT;>0
+If9@f1h0nVKC:PA=34_E2G0
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+Z2 dC:/Users/QWr/Documents/GitHub/copy_mem_packet
+w1554626043
+8C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v
+FC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v
 L0 1
-Z1 OV;L;6.5b;42
+Z3 OV;L;10.3d;59
 r1
-31
-Z2 !s102 -nocovercells
-Z3 o-work Micran -nocovercells -O0
-!s100 ]45hi?DQCJDj5bKK5X94>1
 !s85 0
-!s101 -O0
+31
+!s108 1554626866.290000
+!s107 C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.v|
+!i113 1
+Z4 o-work work
 vfifo
-IA028AO1_LYn3=7zY=IaoL0
-VbITIIjXWhl7<IJ18S8<`k1
-Z4 dC:\Users\DES\Documents\GitHub\copy_mem_packet
-w1554591874
-8C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v
-FC:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v
-L0 1
+R0
+!i10b 1
+!s100 jDLBze7kdH`m0NCc>Whg=2
+IlYQb51H@JGm[FL8YXN_6P2
 R1
-r1
-31
 R2
+w1554626810
+8C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v
+FC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v
+L0 1
 R3
-!s100 <HPPT_VUdaQ_QH8894FM_0
+r1
 !s85 0
-!s101 -O0
-vreg_file
-!s100 @Sj2Mbh;m=o95PSZG_jT83
-I^jSRS6]MPEB]12j0d`egI0
-V9PVhfba6hEV_XT[eN`;X93
+31
+!s108 1554626866.707000
+!s107 C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v|
+!i113 1
 R4
-w1554600505
-8C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/reg_file.v
-FC:/Users/DES/Documents/GitHub/copy_mem_packet/memories/reg_file.v
-L0 1
+vreg_file
+!s110 1554626867
+!i10b 1
+!s100 ?m`eP`bHFg><_KOKSaa5H2
+I2Dla`YFZ5DA3<oeUPaVWH1
 R1
+R2
+w1554626805
+8C:\Users\QWr\Documents\GitHub\copy_mem_packet\memories\reg_file.v
+FC:\Users\QWr\Documents\GitHub\copy_mem_packet\memories\reg_file.v
+L0 2
+R3
 r1
 !s85 0
 31
-!s101 -O0
-R2
-R3
+!s108 1554626867.006000
+!s107 C:\Users\QWr\Documents\GitHub\copy_mem_packet\memories\reg_file.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\QWr\Documents\GitHub\copy_mem_packet\memories\reg_file.v|
+!i113 1
+R4
