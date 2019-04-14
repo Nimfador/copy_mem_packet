@@ -25,13 +25,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	ravil_memory
 
-} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ravil_memory_tb
-
-Top level modules:
-	ravil_memory_tb
-
 } {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/frame_receiver.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/frame_receiver.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module frame_receiver

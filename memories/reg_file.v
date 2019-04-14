@@ -10,7 +10,7 @@ module reg_file
         input wire              irst,
         input wire [pWIDHT-1:0] iw_addr,
         input wire [pWIDHT-1:0] ir_addr,
-        input wire [pBITS-1:0]  iw_data,
+        input wire [pBITS-1:0]  iw_reg_data,
         output wire [pBITS-1:0] or_data
     );
 
@@ -21,7 +21,7 @@ module reg_file
     // body
     always @(posedge iclk ) begin
         if (iwr_en) begin                           // write
-            rarray[iw_addr] <= iw_data;    
+            rarray[iw_addr] <= iw_reg_data;    
         end
         //else if (irst) begin
         //    for (num_b = 0; num_b < (2**pWIDHT-1); num_b = num_b + 1) begin     // reset

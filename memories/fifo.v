@@ -6,8 +6,8 @@ module fifo
     (
         input wire              iclk,
         input wire              ireset,
-        input wire              ird, 
-        input wire              iwr,
+        input wire              ird, // Enables to read
+        input wire              iwr, // Enables to write
         input wire  [pBITS-1:0] iw_data,
         output wire             oempty,
         output wire             ofull,
