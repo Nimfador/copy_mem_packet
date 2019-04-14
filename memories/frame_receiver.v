@@ -1,4 +1,4 @@
-module frame_receiver (o_state, o_data, o_dv, o_change, o_error, o_rcrc_correct, iclk, irx_data, irx_dv, irx_er);
+module frame_receiver (o_state, o_data, o_dv, o_change, o_error,  iclk, irx_data, irx_dv, irx_er);
 	input 				iclk;
 	input [7:0]			irx_data; 
 	input 				irx_dv;
@@ -9,8 +9,7 @@ module frame_receiver (o_state, o_data, o_dv, o_change, o_error, o_rcrc_correct,
 	output wire			o_dv;
 	output wire			o_change;
 	output wire			o_error;
-    output wire 		o_rcrc_correct;
-
+    
 `include "crc.v"
 
 localparam lpNO_FRAME = 3'b000; //s0 - no frame
@@ -27,7 +26,6 @@ reg [2:0] rNstate = lpPREAMBLE;
 reg [3:0] rFCS_counter=3'd0;
 reg [10:0] rcounter=11'd0; // counter inside of Next State Logic
 reg rerror=1'b0; //Signalises an error
-reg rcrc_correct = 1'b0;
 
 reg [7:0] rbyteSR [3:0] = '{default: 'b0};
 reg r_dv [3:0] ;
@@ -140,8 +138,7 @@ always @(posedge iclk or negedge irx_dv)
 	assign o_data  = rbyteSR[3];
 	assign o_dv = r_dv[3];
 	assign o_error= rerror || irx_er;
-    assign o_rcrc_correct = rcrc_correct;
-
+    
 // 4 registers consequentially - buffer 
 always @(posedge iclk)
 	begin
@@ -163,16 +160,11 @@ begin
 		lpDA, lpSA, lpLENGTH, lpDATA, lpFCS: rcrc_new <= eth_crc32_8d(rcrc_new, o_data);
 		endcase
 	end
-	if ((rcrc_new==32'hC704DD7B) && (rCstate==lpNO_FRAME))
-		rcrc_correct<=1'b1;
-	else if ((rcrc_new!==32'hC704DD7B) && (rCstate==lpNO_FRAME))
+		if ((rcrc_new!==32'hC704DD7B) && (rCstate==lpNO_FRAME))
 		begin if (rcrc_new==32'h0)
 			rerror<=1'b0;
-			else begin 
+			else  
 			rerror<=1'b1;
-			rcrc_correct<=1'b0;
-			end
-			
 		end
 end
 endmodule

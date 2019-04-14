@@ -1,34 +1,34 @@
+
 module fifo
     #(
-        parameter pBITS  = 8, // Bus of 8 bits
-                  pWIDHT = 4 
+        parameter pBITS  = 8,               // parameter declaration 
+                  pWIDHT = 4
     )
     (
-        input wire              iclk,
-        input wire              ireset,
-        input wire              ird, // Enables to read
-        input wire              iwr, // Enables to write
+        input wire              iclk,       // Signal declaration 
+        input wire              ireset, 
+        input wire              ird, 
+        input wire              iwr,
         input wire  [pBITS-1:0] iw_data,
         output wire             oempty,
         output wire             ofull,
         output wire [pBITS-1:0] or_data
     );       
 
-    // signal declaration
+    // Inner signal declaration
+    reg [pBITS-1:0]          rArray [pWIDHT-1:0];
+    reg [$clog2(pWIDHT)-1:0]    rW_ptr      = '0;
+    reg [$clog2(pWIDHT)-1:0]    rW_ptr_next = '0;
+    reg [$clog2(pWIDHT)-1:0]    rW_ptr_succ = '0;
 
-    reg [pBITS-1:0] rArray [0:2**pWIDHT-1]; // Length of FIFO
-    reg [pWIDHT-1:0] rW_ptr = '0;
-    reg [pWIDHT-1:0] rW_ptr_next = '0;
-    reg [pWIDHT-1:0] rW_ptr_succ = '0;
+    reg [$clog2(pWIDHT)-1:0]    rR_ptr      = '0;
+    reg [$clog2(pWIDHT)-1:0]    rR_ptr_next = '0;
+    reg [$clog2(pWIDHT)-1:0]    rR_ptr_succ = '0;
 
-    reg [pWIDHT-1:0] rR_ptr = '0;
-    reg [pWIDHT-1:0] rR_ptr_next = '0;
-    reg [pWIDHT-1:0] rR_ptr_succ = '0;
-
-    reg rFull  = 1'b0 ;
-    reg rEmpty = 1'b1;
-    reg rFull_next;
-    reg rEmpty_next;
+    reg                         rFull;
+    reg                         rEmpty;
+    reg                         rFull_next;
+    reg                         rEmpty_next;
 
     wire wWr_en;
 
@@ -42,7 +42,7 @@ module fifo
     assign wWr_en = iwr & ~rFull;
 
     // FIFO controll logic 
-    always @(posedge iclk, posedge ireset) begin
+    always @(posedge iclk,posedge ireset) begin
         if (ireset) begin
             rW_ptr <= 0;
             rR_ptr <= 0;
@@ -56,22 +56,23 @@ module fifo
             rEmpty <= rEmpty_next;
         end
     end
+
     // next-state logic 
     always @* begin
         // successive pointer values 
         rW_ptr_succ = rW_ptr + 1;
         rR_ptr_succ = rR_ptr + 1;
         // default keep old values
-        //rW_ptr_next = rW_ptr;
-        //rR_ptr_next = rR_ptr;
-        //rFull_next = rFull;
-        //rEmpty_next = rEmpty;
+        rW_ptr_next = rW_ptr;
+        rR_ptr_next = rR_ptr;
+        rFull_next  = rFull;
+        rEmpty_next = rEmpty;
         case ({iwr, ird})
             //2'b00:
             2'b01: begin  // read
                 if(~rEmpty) begin // not EMPTY
                     rR_ptr_next = rR_ptr_succ;
-                    rFull_next = 1'b0;
+                    rFull_next  = 1'b0;
                     if (rR_ptr_succ == rW_ptr) begin
                         rEmpty_next = 1'b1;
                     end
@@ -86,7 +87,7 @@ module fifo
                     end
                 end
             end
-            2'b11: begin  // write adn read
+            2'b11: begin  // write and read
                 rW_ptr_next = rW_ptr_succ;
                 rR_ptr_next = rR_ptr_succ;
             end 
@@ -99,5 +100,4 @@ module fifo
     assign ofull = rFull;
     assign oempty = rEmpty;
 
-    
 endmodule 

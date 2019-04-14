@@ -12,7 +12,6 @@ module ravil_memory_tb();
     wire        o_rx_dv_4cd;
     wire [7:0]  o_rx_d4cd;
     wire        o_FR_error;
-    wire        o_crc_correct;
     reg [10:0]  r_FIFO;
     reg [7:0]   r_reg_memory;
     reg [13:0]  r_read_adress='0;
@@ -41,8 +40,7 @@ module ravil_memory_tb();
         .o_change               (o_fsm_state_ch),
         .o_dv                   (o_rx_dv_4cd),
         .o_data                 (o_rx_d4cd),
-        .o_error                (o_FR_error),
-        .o_rcrc_correct         (o_crc_correct)
+        .o_error                (o_FR_error)        
     );   
 
     ravil_memory
