@@ -1,3 +1,8 @@
+`ifdef CONSTANTS
+    `define CONSTANTS
+    `include "project_header.v"
+`endif
+
 module copy_packet_to_mem 
     #(
         parameter pDATA_WIDTH        = 8,                     
@@ -13,7 +18,7 @@ module copy_packet_to_mem
     input wire                              idv,
     input wire [pDATA_WIDTH-1:0]            irx_d,
     input wire                              irx_er,
-    input wire [2:0]                        iframe_state,
+    input wire [pFSM_BUS_WIDHT-1:0]         iframe_state,
 
     input wire                              ird_en,
 
@@ -23,14 +28,14 @@ module copy_packet_to_mem
 
     output wire [pFIFO_WIDTH-1:0]           olen_pac, 
     output wire                             onext_last,
-    output wire [$clog2(pDEPTH_RAM)-1:0]   obytes_to_read,
+    output wire [$clog2(pDEPTH_RAM)-1:0]    obytes_to_read,
 
     output wire                             ofifo_em,
     output wire                             ofifo_full
     );
     
-    reg [1:0]                           rWR_state = 2'b00;              
-    wire [1:0]                          wWR_state_next = 2'b01;         
+    reg [pFSM_WRITE_BUS-1:0]           rWR_state = 2'b00;              
+    reg [pFSM_WRITE_BUS-1:0]           rWR_state_next = 2'b01;         
 
     reg [$clog2(pDEPTH_RAM)-1:0]       rRd_ptr_succ = '0;           // Last successfull pointer            
     reg [$clog2(pDEPTH_RAM)-1:0]       rRd_ptr_now  = '0;
@@ -39,14 +44,13 @@ module copy_packet_to_mem
     reg [$clog2(pDEPTH_RAM)-1:0]       rWr_ptr_succ = '0;           // Last successfull pointer
     reg [$clog2(pDEPTH_RAM)-1:0]       rWr_ptr_now  = '0;
     reg [$clog2(pDEPTH_RAM)-1:0]       rWr_count    = '0;
-    reg                                 rWr_en       = '0;
+    reg                                rWr_en       = '0;
 
-    reg [$clog2(pDATA_WIDTH)-1:0]                 rLast_RB_addr;
 
     // Memory contol registers
-    reg                     rfifo_rd_en;
-    reg                     rfifo_wr_en;
-    reg [pFIFO_WIDTH-1:0]   rfifo_d;
+    reg                                rfifo_rd_en = 'b0;
+    reg                                rfifo_wr_en = 'b0;
+    reg [pFIFO_WIDTH-1:0]              rfifo_d;
     
 
     fifo
@@ -82,18 +86,18 @@ module copy_packet_to_mem
     // Write_data 
     always @(posedge iclk) begin 
         case(rWR_state)
-            2'b00: begin                 // wait_packet
-                if (idv & (iframe_state == 3'b010) & !irx_er) begin
-                    rWR_state <= wWR_state_next;
+            lpWAIT: begin                 // wait_packet
+                if (idv & (iframe_state == lpPRE) & !irx_er) begin
+                    rWR_state <= rWR_state_next;
                     rWr_en <= 1'b1;
                 end       
             end
-            2'b01: begin                 // write_packet_to_mem
+            lpWRITE: begin                 
                 if (irx_er) begin
                     rWR_state <= 2'b00;
                 end
                 else if (idv == 'b0) begin 
-                    rWR_state <= wWR_state_next;
+                    rWR_state <= rWR_state_next;
                     rWr_en <=1'b0;
                 end
                 else begin
@@ -107,19 +111,20 @@ module copy_packet_to_mem
                     end
                 end
             end
-            2'b10: begin                 // check_CRC
+            lpCHECK_CRC: begin                
                 if (irx_er == 1'b1) begin
-                    rWR_state <= wWR_state_next;
+                    rWR_state <= rWR_state_next;
                 end
                 else begin
                     if(rfifo_wr_en) begin
                         rfifo_wr_en <= 1'b0;
-                        rWR_state <= wWR_state_next;
+                        rWr_count <= 'd0;
+                        rWR_state <= rWR_state_next;
                         rWr_ptr_succ <= rWr_ptr_now;
                     end
                     else begin
                         rfifo_wr_en <= 1'b1;
-                        rfifo_d[$clog2(pDEPTH_RAM)-1:0] <= rWr_count;
+                        rfifo_d <= rWr_count;
                     end
                 end
             end
@@ -128,14 +133,14 @@ module copy_packet_to_mem
 
     always @* begin
         case(rWR_state)
-            2'b00:  wWR_state_next = 2'b01;
-            2'b01:  wWR_state_next = 2'b10;
-            2'b10:  wWR_state_next = 2'b00;
+            lpWAIT     :  rWR_state_next = lpWRITE;
+            lpWRITE    :  rWR_state_next = lpCHECK_CRC;
+            lpCHECK_CRC:  rWR_state_next = lp_WAIT;
         endcase
     end
 
     // Read_data
-    always @(iclk) begin
+    always @(posedge iclk) begin
         if (ird_en) begin 
             if (rRd_count != 'b0) begin
                 if (rWr_ptr_now + 'b1 == pDEPTH_RAM) begin
@@ -162,7 +167,7 @@ module copy_packet_to_mem
     // Read and write pointers check
     assign ofull = (((rWr_ptr_succ > rRd_ptr_succ) ? 
                      (rRd_ptr_succ - rWr_ptr_succ) : 
-                     (rWr_ptr_succ - rRd_ptr_succ)) > 1536) ? 1'b0 : 1'b1;
+                     (rWr_ptr_succ - rRd_ptr_succ)) > pMAX_PACKET_LENGHT) ? 1'b0 : 1'b1;
     assign oempty = (rWr_ptr_succ == rRd_ptr_succ) ?  1'b1 : 1'b0;
     // next last
     assign onext_last = (rRd_count == 'b1) ? 1'b1 : 0'b0;
