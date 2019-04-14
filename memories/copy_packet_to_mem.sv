@@ -90,7 +90,8 @@ module copy_packet_to_mem
                 if (idv & (iframe_state == lpSFD) & !irx_er) begin
                     rWR_state <= rWR_state_next;
                     rWr_en <= 1'b1;
-                end       
+                end   
+                rWr_ptr_now <= rWr_ptr_succ;    
             end
             lpWRITE: begin                 
                 if (irx_er) begin
@@ -103,11 +104,12 @@ module copy_packet_to_mem
                 else begin
                     if ((rWr_ptr_now + 'b1) > pDEPTH_RAM) begin
                         rWr_count <= rWr_count + 'd1;
-                        rWr_ptr_now <= 'b0;
+                        rWr_ptr_now <= 'd0;
+                        rWr_ptr_succ <= 'd0;
                     end
                     else begin
                         rWr_count <= rWr_count + 'd1;
-                        rWr_ptr_now <= rWr_ptr_succ + rWr_count;   
+                        rWr_ptr_now <= rWr_ptr_now + 'd1;   
                     end
                 end
             end
@@ -143,9 +145,10 @@ module copy_packet_to_mem
     always @(posedge iclk) begin
         if (ird_en) begin 
             if (rRd_count != 'b0) begin
-                if (rWr_ptr_now + 'b1 == pDEPTH_RAM) begin
+                if ((rWr_ptr_now + 'b1) > pDEPTH_RAM) begin
                     rRd_count <= rRd_count - 'b1;
                     rRd_ptr_now <= 'b0;
+                    rRd_ptr_succ <= 'd0;
                 end
                 else begin
                     rRd_count <= rRd_count - 'b1;
