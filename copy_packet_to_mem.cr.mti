@@ -12,12 +12,11 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 Top level modules:
 	sram
 
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/Ethernet_frame_analuzer_tb_w_io.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/Ethernet_frame_analuzer_tb_w_io.sv
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/project_header.v {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/project_header.v
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module Ethernet_frame_analyzer_tb_w_io
 
 Top level modules:
-	Ethernet_frame_analyzer_tb_w_io
+	--none--
 
 } {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/pcap2gmii.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/pcap2gmii.sv
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
@@ -26,25 +25,12 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 Top level modules:
 	pcap2gmii
 
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/inverse_data.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/inverse_data.sv
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/Ethernet_frame_analuzer_tb_w_io.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/Ethernet_frame_analuzer_tb_w_io.sv
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module inverse_data
+-- Compiling module Ethernet_frame_analyzer_tb_w_io
 
 Top level modules:
-	inverse_data
-
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/Ethernet_RX_frame_5cd.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/Ethernet_RX_frame_5cd.sv
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module Ethernet_RX_frame_5cd
-
-Top level modules:
-	Ethernet_RX_frame_5cd
-
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/crc.v {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/crc.v
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
-
-Top level modules:
-	--none--
+	Ethernet_frame_analyzer_tb_w_io
 
 } {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
@@ -53,18 +39,24 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 Top level modules:
 	fifo
 
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.sv
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/crc.v {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/crc.v
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module copy_packet_to_mem
 
 Top level modules:
-	copy_packet_to_mem
+	--none--
 
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/reg_file.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/reg_file.v
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/Ethernet_RX_frame_5cd.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/Ethernet_RX_frame_5cd.sv
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module reg_file
+-- Compiling module Ethernet_RX_frame_5cd
 
 Top level modules:
-	reg_file
+	Ethernet_RX_frame_5cd
+
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/inverse_data.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/inverse_data.sv
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module inverse_data
+
+Top level modules:
+	inverse_data
 
 } {} {}}
