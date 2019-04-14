@@ -101,7 +101,7 @@ module copy_packet_to_mem
                     rWr_en <=1'b0;
                 end
                 else begin
-                    if (rWr_ptr_now + 'b1 == pDEPTH_RAM) begin
+                    if ((rWr_ptr_now + 'b1) > pDEPTH_RAM) begin
                         rWr_count <= rWr_count + 'd1;
                         rWr_ptr_now <= 'b0;
                     end
@@ -154,7 +154,7 @@ module copy_packet_to_mem
                 rfifo_rd_en <= 'b0;
             end
             else begin
-                rRd_count <= olen_pac;
+                rRd_count <= olen_pac + 1'b1;
                 rfifo_rd_en <= 'b1;
             end
         end
@@ -166,7 +166,7 @@ module copy_packet_to_mem
 
     // next last
     always @(posedge iclk) begin
-        if (rRd_count == 'b1) onext_last <= 1'b1;
+        if (rRd_count == 'b10) onext_last <= 1'b1;
         else onext_last <= 1'b0;
     end 
 
