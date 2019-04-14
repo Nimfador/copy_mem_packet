@@ -7,14 +7,14 @@ module reg_file
     (
         input wire              iclk,
         input wire              iwr_en,
-        input wire [pWIDHT-1:0] iw_addr,
-        input wire [pWIDHT-1:0] ir_addr,
+        input wire [$clog2(pWIDHT)-1:0] iw_addr,
+        input wire [$clog2(pWIDHT)-1:0] ir_addr,
         input wire [pBITS-1:0]  iw_reg_data,
         output wire [pBITS-1:0] or_data
     );
 
     // signal declaration
-    reg [pBITS-1:0] rarray [pWIDHT-1:0];
+    reg [pBITS-1:0] rarray [0:pWIDHT-1];
     
     // body
     always @(posedge iclk ) begin

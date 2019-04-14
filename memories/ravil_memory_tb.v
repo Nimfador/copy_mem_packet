@@ -14,7 +14,7 @@ module ravil_memory_tb();
     wire        o_FR_error;
     reg [10:0]  r_FIFO;
     reg [7:0]   r_reg_memory;
-    reg [13:0]  r_read_adress='0;
+    reg         r_read_enable='0;
 
     pcap2gmii
     #(
@@ -50,10 +50,9 @@ module ravil_memory_tb();
         .i_rst                  (reset),
         .idv                    (o_rx_dv_4cd),
         .i_error                (o_FR_error),
-        .i_crc_correct          (o_crc_correct),
         .irx_d                  (o_rx_d4cd),
         .iFSM_state             (o_fsm_state),
-        .i_reg_read_addr        (r_read_adress),
+        .i_r_enable             (r_read_enable),
         .o_FIFO                 (r_FIFO),
         .o_reg                  (r_reg_memory)
         );
@@ -74,18 +73,9 @@ module ravil_memory_tb();
        reset = 1;
        #2
        reset = 0;
-       #1500
-       reset = 1;
-       #20
-       reset = 0;
+       #300
+       r_read_enable = 1;
     end    
-
-  always 
-        begin 
-        #37
-        r_read_adress<=r_read_adress+1;
-    end;
-
 
     initial begin
         #5000 $finish;
