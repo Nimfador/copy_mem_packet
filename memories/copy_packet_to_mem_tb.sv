@@ -68,6 +68,9 @@ module copy_packet_to_mem_tb;
         
     end 
 
+    always @(negedge onext_last) begin
+        ird_en = 0;
+    end
     // always begin
     //     if (onext_last == 1) ird_en = 0;
     // end
