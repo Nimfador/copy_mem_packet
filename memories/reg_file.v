@@ -10,7 +10,7 @@ module reg_file
         input wire [$clog2(pWIDHT)-1:0] iw_addr,
         input wire [$clog2(pWIDHT)-1:0] ir_addr,
         input wire [pBITS-1:0]  iw_reg_data,
-        output wire [pBITS-1:0] or_data
+        output reg [pBITS-1:0] or_data
     );
 
     // signal declaration
@@ -21,9 +21,8 @@ module reg_file
         if (iwr_en) begin                           // write
             rarray[iw_addr] <= iw_reg_data;    
         end
+    or_data <= rarray[ir_addr];
       
     end
 
-    assign or_data = rarray[ir_addr];
-
-endmodule
+    endmodule

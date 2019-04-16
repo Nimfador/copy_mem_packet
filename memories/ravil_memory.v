@@ -28,10 +28,10 @@ module ravil_memory
 
     // regs for register memory
     reg                                                 r_iwr_en='0; // Enables work of register memory
-    reg [$clog2(pDEPTH_RAM)-1:0]                        r_iw_addr='0;
-    reg [pFIFO_WIDTH-1:0]                               r_counter_adr='0;
-    reg [pFIFO_WIDTH-1:0]                               r_counter_len='0;//Calculates lenght of packet
-    reg [pFIFO_WIDTH-1:0]                               r_read_counter='0;
+    // reg [$clog2(pDEPTH_RAM)-1:0]                        r_iw_addr='0;
+    reg [$clog2(pDEPTH_RAM)-1:0]                        r_counter_adr='0;
+    reg [$clog2(pDEPTH_RAM)-1:0]                        r_counter_len='0;//Calculates lenght of packet
+    reg [$clog2(pDEPTH_RAM)-1:0]                        r_read_counter='0;
 
     reg [$clog2(pDEPTH_RAM)-1:0]                        r_read_pointer='0;
     
@@ -67,7 +67,7 @@ module ravil_memory
     (
         .iclk                   (iclk),
         .iwr_en                 (r_iwr_en),
-        .iw_addr                (r_iw_addr),
+        .iw_addr                (r_counter_adr),
         .ir_addr                (r_read_pointer),
         .iw_reg_data            (irx_d),                //Data, incoming to reg
         .or_data                (o_reg)                 //Output of reg memory
@@ -100,7 +100,7 @@ module ravil_memory
             else begin  //later think about overflow
                 r_counter_adr<=r_counter_adr+1;
                 r_counter_len<=r_counter_len+1;
-                r_iw_addr<= r_counter_adr;
+                //r_iw_addr<= r_counter_adr;
             end
             end
             end
