@@ -10,164 +10,185 @@ cModel Technology
 dC:/Users/QWr/Documents/GitHub/copy_mem_packet
 Xcrc_v_unit
 Z0 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
-Z1 !s110 1555423369
+!s110 1555837133
 !i10b 1
 !s100 lH]PLaRRU?_1f8j9<CVNG0
 IiEG[?aF5joic5ik53VIAO2
 ViEG[?aF5joic5ik53VIAO2
 !i103 1
 S1
-Z2 dC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories
-Z3 w1555073560
+Z1 dC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories
+Z2 w1555073560
 8C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/crc.v
 FC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/crc.v
 L0 3
-Z4 OV;L;10.3d;59
+Z3 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1555423369.226000
+!s108 1555837133.824000
 !s107 C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/crc.v|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/crc.v|
 !i113 1
-Z5 o-work work -sv
+Z4 o-work work -sv
 vfifo
 R0
-Z6 !s110 1555423367
+Z5 !s110 1555837053
 !i10b 1
 !s100 QahN:>Hj:TRTeQRN0m7mR0
 I8UH5kN@NA7d;j_PH_I1K81
-Z7 V`JN@9S9cnhjKRR_L]QIcM3
+Z6 V`JN@9S9cnhjKRR_L]QIcM3
 !s105 fifo_v_unit
 S1
-R2
+R1
 w1555422342
 8C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v
 FC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v
 L0 2
-R4
+R3
 r1
 !s85 0
 31
-!s108 1555423367.572000
+!s108 1555837053.493000
 !s107 C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v|
 !i113 1
-R5
+R4
 vframe_receiver
 R0
-R6
+R5
 !i10b 1
 !s100 2j6LiiBFdW7g20WYkZa>82
 IC`8c>P<`;:W39@C?4d6dY1
-R7
+R6
 !s105 frame_receiver_v_unit
 S1
-R2
+R1
 w1555234346
 8C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/frame_receiver.v
 FC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/frame_receiver.v
-Z8 Fcrc.v
+Z7 Fcrc.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-!s108 1555423367.849000
+!s108 1555837053.795000
 !s107 crc.v|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/frame_receiver.v|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/frame_receiver.v|
 !i113 1
-R5
+R4
+vMAC_memory
+!s110 1555837136
+!i10b 1
+!s100 :=9VfaE:Z_U9FDWcnZ<h13
+I<iD4BL043Wld9`N6JK_Cl0
+R6
+R1
+w1555834890
+8C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/MAC_memory.v
+FC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/MAC_memory.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1555837136.207000
+!s107 C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/MAC_memory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/MAC_memory.v|
+!i113 1
+o-work work
+n@m@a@c_memory
 vpcap2gmii
 R0
-R1
+!s110 1555837135
 !i10b 1
 !s100 OJ^nb661iUSZNi;`FaaEN3
 I9mgWIF[XjgXF?9SPz_G`82
-R7
+R6
 !s105 pcap2gmii_sv_unit
 S1
+R1
 R2
-R3
 8C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/pcap2gmii.sv
 FC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/pcap2gmii.sv
-R8
+R7
 L0 9
-R4
+R3
 r1
 !s85 0
 31
-!s108 1555423369.613000
+!s108 1555837135.627000
 !s107 crc.v|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/pcap2gmii.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/pcap2gmii.sv|
 !i113 1
-R5
+R4
 vravil_memory
 R0
-Z9 !s110 1555423368
+Z8 !s110 1555837054
 !i10b 1
-!s100 6XF]@UH4XPRJ@?<ER?]1^1
-I[7TEHSnKW;JjCiV80i8DF1
-R7
+!s100 2hm0MhQ2ahS]?Cl9I>T6T0
+IB;>QhfoCJf8U`hL;aT8A;2
+R6
 !s105 ravil_memory_v_unit
 S1
-R2
-w1555423303
+R1
+w1555837039
 8C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory.v
 FC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-!s108 1555423368.249000
+!s108 1555837054.117000
 !s107 C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory.v|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory.v|
 !i113 1
-R5
+R4
 vravil_memory_tb
 R0
-R9
+R8
 !i10b 1
 !s100 aVkcP3o`:DXU>TISf7z810
 IWAQ`X`=<^7fZHcf4B61zn0
-R7
+R6
 !s105 ravil_memory_tb_v_unit
 S1
-R2
-w1555238069
+R1
+w1555831556
 8C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v
 FC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-!s108 1555423368.917000
+!s108 1555837054.401000
 !s107 C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v|
 !i113 1
-R5
+R4
 vreg_file
 R0
-R6
+R5
 !i10b 1
-!s100 =iJ[VKUV;;Hb9e3@3kbPN3
-Ide43kPi;hiRNk14?1U7R42
-R7
+!s100 lOjdBcbllCCF7BiGBXMMl3
+ITDb=I80`M0kVWoLogYAP40
+R6
 !s105 reg_file_v_unit
 S1
-R2
-w1555422412
+R1
+w1555831837
 8C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/reg_file.v
 FC:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/reg_file.v
-L0 2
-R4
+L0 1
+R3
 r1
 !s85 0
 31
-!s108 1555423367.262000
+!s108 1555837053.140000
 !s107 C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/reg_file.v|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/reg_file.v|
 !i113 1
-R5
+R4

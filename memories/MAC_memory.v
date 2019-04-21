@@ -1,4 +1,4 @@
-module reg_file
+module MAC_memory
     #(
         parameter               pBITS = 8,      //Data Width
                                 pWIDHT = 3072   //Number of regs or depth of data
