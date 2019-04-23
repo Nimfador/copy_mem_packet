@@ -1,0 +1,41 @@
+# Compile of reg_file.v was successful.
+# Compile of fifo.v was successful.
+# Compile of frame_receiver.v was successful.
+# Compile of ravil_memory.v was successful.
+# Compile of ravil_memory_tb.v was successful.
+# Compile of crc.v was successful.
+# 6 compiles, 0 failed with no errors.
+vsim -gui work.ravil_memory_tb
+# vsim -gui C:\Users\QWr\Documents\GitHub\copy_mem_packet\memories\memories.mpf 
+# Start time: 20:01:48 on Apr 12,2019
+# Loading sv_std.std
+# Loading work.ravil_memory_tb
+# ** Error: (vsim-3033) C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v(23): Instantiation of 'pcap2gmii' failed. The design unit was not found.
+# 
+#         Region: /ravil_memory_tb
+#         Searched libraries:
+#             C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/work
+# ** Error: (vsim-3037) C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v(44): Missing instance name in instantiation of 'frame_receiver'.
+# 
+#         Region: /ravil_memory_tb
+# Loading work.ravil_memory
+# Loading work.fifo
+# Loading work.reg_file
+# Error loading design
+vsim -gui work.ravil_memory_tb
+# vsim 
+# Start time: 20:02:14 on Apr 12,2019
+# Loading sv_std.std
+# Loading work.ravil_memory_tb
+# ** Error: (vsim-3033) C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v(23): Instantiation of 'pcap2gmii' failed. The design unit was not found.
+# 
+#         Region: /ravil_memory_tb
+#         Searched libraries:
+#             C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/work
+# ** Error: (vsim-3037) C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v(44): Missing instance name in instantiation of 'frame_receiver'.
+# 
+#         Region: /ravil_memory_tb
+# Loading work.ravil_memory
+# Loading work.fifo
+# Loading work.reg_file
+# Error loading design

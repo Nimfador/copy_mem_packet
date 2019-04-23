@@ -1,4 +1,3 @@
-//Mac Memory should be deleted
 module ravil_memory  
     #(
         parameter pDATA_WIDTH        = 8,                     
@@ -147,7 +146,7 @@ module ravil_memory
         endcase
     end
 
-    /*always @(posedge iclk) begin         
+    always @(posedge iclk) begin         
         if ((iFSM_state==3'b100)|(iFSM_state==3'b101)|(iFSM_state==3'b110)) begin 
         case (r_counter_len)
         'd10: r_MAC_higher<=irx_d [5:0];    //write Adress
@@ -161,7 +160,7 @@ module ravil_memory
         'd15: r_MAC_read_addr<=r_MAC_read_addr+1; //read Adress
         endcase
         end
-        end*/
+        end
 
 
          

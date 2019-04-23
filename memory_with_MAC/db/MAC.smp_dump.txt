@@ -1,0 +1,6 @@
+
+State Machine - |ravil_memory|rWR_state
+Name rWR_state.lpWAIT rWR_state.lpCHECK rWR_state.lpWRITE 
+rWR_state.lpWAIT 0 0 0 
+rWR_state.lpWRITE 1 0 1 
+rWR_state.lpCHECK 1 1 0 
