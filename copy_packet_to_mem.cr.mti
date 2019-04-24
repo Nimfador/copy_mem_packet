@@ -5,40 +5,6 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 Top level modules:
 	copy_packet_to_mem_tb
 
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/sram.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/sram.sv
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module sram
-
-Top level modules:
-	sram
-
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/project_header.v {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/project_header.v
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
-
-Top level modules:
-	--none--
-
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/pcap2gmii.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/pcap2gmii.sv
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module pcap2gmii
-
-Top level modules:
-	pcap2gmii
-
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/Ethernet_frame_analuzer_tb_w_io.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/Ethernet_frame_analuzer_tb_w_io.sv
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module Ethernet_frame_analyzer_tb_w_io
-
-Top level modules:
-	Ethernet_frame_analyzer_tb_w_io
-
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module fifo
-
-Top level modules:
-	fifo
-
 } {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/crc.v {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/crc.v
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 
@@ -66,5 +32,46 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 
 Top level modules:
 	copy_packet_to_mem
+
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/project_header.v {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/project_header.v
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+
+Top level modules:
+	--none--
+
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/MAC_mem/MAC_to_maddr_tb.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/MAC_mem/MAC_to_maddr_tb.sv
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module MAC_to_maddr_tb
+
+Top level modules:
+	MAC_to_maddr_tb
+
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/pcap2gmii.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/pcap2gmii.sv
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module pcap2gmii
+
+Top level modules:
+	pcap2gmii
+
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v {1 {vlog -work Micran -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/fifo.v
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module fifo
+
+Top level modules:
+	fifo
+
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/sram.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/sram.sv
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module sram
+
+Top level modules:
+	sram
+
+} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/Ethernet_frame_analuzer_tb_w_io.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/Ethernet_frame_analuzer_tb_w_io.sv
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Ethernet_frame_analyzer_tb_w_io
+
+Top level modules:
+	Ethernet_frame_analyzer_tb_w_io
 
 } {} {}}
