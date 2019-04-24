@@ -1,39 +1,29 @@
-C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/crc.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/crc.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-
-Top level modules:
-	--none--
-
-} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v
+C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/fifo.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module fifo
 
 Top level modules:
 	fifo
 
-} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/MAC_memory.v {0 {vlog -work work -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/MAC_memory.v
+} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/crc.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/crc.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module MAC_memory
-** Error: C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/MAC_memory.v(18): (vlog-2110) Illegal reference to memory "r_port_num".
 
-** Error: C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/MAC_memory.v(18): Illegal LHS of assignment.
-** Error: C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/MAC_memory.v(19): (vlog-2110) Illegal reference to memory "r_time".
+Top level modules:
+	--none--
 
-** Error: C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/MAC_memory.v(19): Illegal LHS of assignment.
-
-} {4.0 5.0 6.0 8.0 9.0 10.0} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/reg_file.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/reg_file.v
+} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/reg_file.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/reg_file.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module reg_file
 
 Top level modules:
 	reg_file
 
-} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/pcap2gmii.sv {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/pcap2gmii.sv
+} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module pcap2gmii
+-- Compiling module ravil_memory_tb
 
 Top level modules:
-	pcap2gmii
+	ravil_memory_tb
 
 } {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/frame_receiver.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/frame_receiver.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -42,11 +32,11 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	frame_receiver
 
-} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/ravil_memory_tb.v
+} {} {}} C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/pcap2gmii.sv {1 {vlog -work work -sv -stats=none C:/Users/QWr/Documents/GitHub/copy_mem_packet/memories/pcap2gmii.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ravil_memory_tb
+-- Compiling module pcap2gmii
 
 Top level modules:
-	ravil_memory_tb
+	pcap2gmii
 
 } {} {}}
