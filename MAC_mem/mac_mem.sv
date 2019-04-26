@@ -45,7 +45,7 @@ module mac_mem
         if (rtimer ==  0) rtimer <= pCLK_PER_SEC;
         else rtimer <= rtimer - 1;
     end
-
+    
     always @(posedge iclk) begin
         if (rtimer > pDATA_DEPTH*2) begin           // Write SA value to mem
             if(iwr_en) begin                           
@@ -63,6 +63,7 @@ module mac_mem
                 if(raddr_rd[$clog2(pTIME)-1:0] != 0)
                     rdata_wr <= {raddr_rd[$clog2(pNUM_PORTS)+$clog2(pTIME)-1:$clog2(pTIME)-2],
                                  raddr_rd[$clog2(pTIME)-1:0]-1};
+                else rdata_wr <= 'b0;
             end
             else begin
                 rwr_en <= 1;
