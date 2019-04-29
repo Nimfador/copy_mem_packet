@@ -1,9 +1,7 @@
-`include "header.v"
-
 module MAC_memory
     #(
-        parameter               pADRESS = 2,      //Capacity for port â„–   
-                                pSLOTS = 16384,   //â„– of adresses   
+        parameter               pADRESS = 2,      //Capacity for port ¹   
+                                pSLOTS = 16384,   //¹ of adresses   
                                 pDATA_WIDTH=8,
                                 pTIME = 9,         //Capacity for save time = 300 seconds 
                                 pMAX_PACKET_LENGHT = 1536,
@@ -41,9 +39,9 @@ module MAC_memory
 
 
     always @(posedge iclk) begin                        //Getting MAC adress
-        if ((iFSM_state!==lpNO_FRAME)&(iFSM_state!==lpPREAMBLE)&(iFSM_state!==lpFCS)) 
+        if ((iFSM_state!==3'b000)&(iFSM_state!==3'b001)&(iFSM_state!==3'b111)) 
             r_counter_len<=r_counter_len+1;       
-        if ((iFSM_state==lpSA)|(iFSM_state==lpLENGTH)|(iFSM_state==lpDATA)) begin 
+        if ((iFSM_state==3'b100)|(iFSM_state==3'b101)|(iFSM_state==3'b110)) begin 
         case (r_counter_len)
         'd11: r_MAC_higher<=irx_d [5:0];    //write Adress
         'd12: r_MAC_lower<=irx_d;
@@ -55,7 +53,7 @@ module MAC_memory
                 end
         endcase
         end
-        if (iFSM_state==lpFCS) 
+        if (iFSM_state==3'b111) 
             r_counter_len<='0;
         end
 
@@ -73,6 +71,4 @@ module MAC_memory
 
     endmodule
 
-//Ð¡ÐµÐºÑƒÐ´Ð½Ñ‹Ð¹ Ñ‚Ð°Ð¹Ð¼ÐµÑ€ Ð½Ð° PSP
-
-    
+//Ñåêóäíûé òàéìåð íà PSP

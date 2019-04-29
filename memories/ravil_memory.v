@@ -1,4 +1,5 @@
-//Mac Memory should be deleted
+`include "header.v"
+
 module ravil_memory  
     #(
         parameter pDATA_WIDTH        = 8,                     
@@ -11,10 +12,9 @@ module ravil_memory
                   pFIFO_DEPTH        = pDEPTH_RAM/pMIN_PACKET_LENGHT 
     )
 
-(o_FIFO, o_reg, o_MAC, iclk, i_rst, idv, i_error, irx_d, iFSM_state, i_r_enable); 
+(o_FIFO, o_reg, iclk, i_rst, idv, i_error, irx_d, iFSM_state, i_r_enable); 
     output wire [pFIFO_WIDTH-1:0]                       o_FIFO;
     output wire [pDATA_WIDTH-1:0]                       o_reg;
-    output wire [pADRESS_WIDTH-1:0]                     o_MAC;
     input wire                                          iclk;
     input wire                                          i_rst; 
     input wire                                          idv;
@@ -40,12 +40,6 @@ module ravil_memory
     reg [$clog2(pDEPTH_RAM)-1:0]                        r_read_pointer='0;
 
     //regs for MAC
-    reg [5:0]                                           r_MAC_higher='0;
-    reg [7:0]                                           r_MAC_lower='0;
-    reg                                                 r_MAC_w_en='0;
-    reg [pADRESS_WIDTH-1:0]                             r_MAC_input='0;
-    reg [pADRESS_REGS-1:0]                              r_MAC_write_addr='0;
-    reg [pADRESS_REGS-1:0]                              r_MAC_read_addr='0;
 
     //integer                                             i;
     
@@ -87,20 +81,6 @@ module ravil_memory
         .or_data                (o_reg)                 //Output of reg memory
     );
 
-    MAC_memory
-    #(
-        .pBITS                  (pADRESS_WIDTH),          
-        .pWIDHT                 (pADRESS_REGS)
-    ) 
-        memory_for_MAC_adress
-    (
-        .iclk                   (iclk),
-        .iwr_en                 (r_MAC_w_en),
-        .iw_addr                (r_MAC_write_addr),
-        .ir_addr                (r_MAC_read_addr),
-        .iw_reg_data            (r_MAC_input),                
-        .or_data                (o_MAC)                 
-    );
 
     always @* begin
         case(rWR_state)
@@ -113,7 +93,7 @@ module ravil_memory
     always @(posedge iclk) begin        //Write
         case(rWR_state)
         lpWAIT: begin 
-            if (idv & (iFSM_state==3'b010) & !i_error) begin
+            if (idv & (iFSM_state==lpDELIMETER) & !i_error) begin
                 rWR_state<=rWR_state_next;
                 r_iwr_en<=1'b1;
             end
@@ -146,22 +126,6 @@ module ravil_memory
             end
         endcase
     end
-
-    /*always @(posedge iclk) begin         
-        if ((iFSM_state==3'b100)|(iFSM_state==3'b101)|(iFSM_state==3'b110)) begin 
-        case (r_counter_len)
-        'd10: r_MAC_higher<=irx_d [5:0];    //write Adress
-        'd11: r_MAC_lower<=irx_d;
-        'd12: r_MAC_input<={r_MAC_higher,r_MAC_lower};
-        'd13: begin 
-                r_MAC_w_en<=1'b1;
-                r_MAC_write_addr<=r_MAC_write_addr+1;
-                end
-        'd14: r_MAC_w_en<=1'b0;
-        'd15: r_MAC_read_addr<=r_MAC_read_addr+1; //read Adress
-        endcase
-        end
-        end*/
 
 
          
