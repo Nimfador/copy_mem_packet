@@ -18,7 +18,7 @@ localparam [2:0] lpNO_FRAME  =  3'b000,     // No data
                   pADRESS_REGS       = 2**pADRESS_WIDTH/pADRESS_WIDTH,
                   pFIFO_WIDTH        = $clog2(pMAX_PACKET_LENGHT),
                   pDEPTH_RAM         = 2*pMAX_PACKET_LENGHT,
-                  pFIFO_DEPTH        = pDEPTH_RAM/pMIN_PACKET_LENGHT 
+                  pFIFO_DEPTH        = pDEPTH_RAM/pMIN_PACKET_LENGHT; 
 
 
 

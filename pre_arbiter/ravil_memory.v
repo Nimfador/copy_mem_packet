@@ -41,10 +41,7 @@ module ravil_memory
 
     reg [$clog2(pDEPTH_RAM)-1:0]                        r_read_pointer='0;
     reg [$clog2(pDEPTH_RAM)-1:0]                        r_start_of_packet='0;
-
-    //regs for MAC
-
-    //integer                                             i;
+    reg                                                 r_packet_read='0;
     
     // regs for FIFO memory
     reg                                                 r_FIFO_ird='0; // Enables FIFO to read
@@ -144,7 +141,7 @@ module ravil_memory
                     r_read_pointer <= r_read_pointer + 'b1;    
                 end
                 r_FIFO_ird<='b0; //Happens, when packet was fully read
-                r_packet_read<=1'b1;
+                r_packet_read<=1'b0;
             end
             else begin
                 r_read_counter<= o_FIFO;
@@ -153,8 +150,8 @@ module ravil_memory
                 r_packet_read<=1'b1;
             end
         end
-        else 
-            r_read_counter <= 'b0;
+        //else 
+            //r_read_counter <= 'b0;
     end
 
     assign o_read_pointer=r_start_of_packet;
