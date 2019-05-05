@@ -1,29 +1,26 @@
+`include "header.v"
 
 module fifo
-    #(
-        parameter pBITS  = 8,               // parameter declaration 
-                  pWIDHT = 4
-    )
     (
-        input wire              iclk,       // Signal declaration 
-        input wire              ireset, 
-        input wire              ird, 
-        input wire              iwr,
-        input wire  [pBITS-1:0] iw_data,
-        output wire             oempty,
-        output wire             ofull,
-        output wire [pBITS-1:0] or_data
+        input wire                          iclk,       // Signal declaration 
+        input wire                          ireset, 
+        input wire                          ird, 
+        input wire                          iwr,
+        input wire [pFIFO_WIDTH-1:0]        iw_data,
+        output wire                         oempty,
+        output wire                         ofull,
+        output wire [pFIFO_WIDTH-1:0]       or_data
     );       
 
     // Inner signal declaration
-    reg [pBITS-1:0]          rArray [pWIDHT-1:0];
-    reg [$clog2(pWIDHT)-1:0]    rW_ptr      = '0;
-    reg [$clog2(pWIDHT)-1:0]    rW_ptr_next = '0;
-    reg [$clog2(pWIDHT)-1:0]    rW_ptr_succ = '0;
+    reg [pFIFO_WIDTH-1:0]            rArray [pFIFO_DEPTH-1:0];
+    reg [$clog2(pFIFO_DEPTH)-1:0]    rW_ptr      = '0;
+    reg [$clog2(pFIFO_DEPTH)-1:0]    rW_ptr_next = '0;
+    reg [$clog2(pFIFO_DEPTH)-1:0]    rW_ptr_succ = '0;
 
-    reg [$clog2(pWIDHT)-1:0]    rR_ptr      = '0;
-    reg [$clog2(pWIDHT)-1:0]    rR_ptr_next = '0;
-    reg [$clog2(pWIDHT)-1:0]    rR_ptr_succ = '0;
+    reg [$clog2(pFIFO_DEPTH)-1:0]    rR_ptr      = '0;
+    reg [$clog2(pFIFO_DEPTH)-1:0]    rR_ptr_next = '0;
+    reg [$clog2(pFIFO_DEPTH)-1:0]    rR_ptr_succ = '0;
 
     reg                         rFull;
     reg                         rEmpty;

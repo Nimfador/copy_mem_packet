@@ -33,16 +33,6 @@ module pre_arbiter
         reg [1:0]                                           r_state_next = lpWORK;
 
  ravil_memory
-    #(  .pDATA_WIDTH            (8),        
-        .pMIN_PACKET_LENGHT     (64), 
-        .pMAX_PACKET_LENGHT     (1536), 
-        .pADRESS_WIDTH          (14),
-        .pADRESS_REGS           (2**pADRESS_WIDTH/pADRESS_WIDTH),
-        .pFIFO_WIDTH            ($clog2(pMAX_PACKET_LENGHT)),
-        .pDEPTH_RAM             (2*pMAX_PACKET_LENGHT),
-        .pFIFO_DEPTH            (pDEPTH_RAM/pMIN_PACKET_LENGHT)
-                  
-    ) 
         SUPER_MODULE
     (
         .iclk                   (iclk),

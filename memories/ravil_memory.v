@@ -1,22 +1,10 @@
 `include "header.v"
 
 module ravil_memory  
-    #(
-        parameter pDATA_WIDTH        = 8,                     
-                  pMIN_PACKET_LENGHT = 64,
-                  pMAX_PACKET_LENGHT = 1536,
-                  pADRESS_WIDTH      = 14,
-                  pADRESS_REGS       = 2**pADRESS_WIDTH/pADRESS_WIDTH,
-                  pFIFO_WIDTH        = $clog2(pMAX_PACKET_LENGHT),
-                  pDEPTH_RAM         = 2*pMAX_PACKET_LENGHT,
-                  pFIFO_DEPTH        = pDEPTH_RAM/pMIN_PACKET_LENGHT 
-    )
 
-(o_FIFO, o_reg, o_read_pointer, o_packet_read, iclk, i_rst, idv, i_error, irx_d, iFSM_state, i_r_enable); 
+(o_FIFO, o_reg, iclk, i_rst, idv, i_error, irx_d, iFSM_state, i_r_enable); 
     output wire [pFIFO_WIDTH-1:0]                       o_FIFO;
     output wire [pDATA_WIDTH-1:0]                       o_reg;
-    output wire [$clog2(pDEPTH_RAM)-1:0]                o_read_pointer;
-    output wire                                         o_packet_read;
     input wire                                          iclk;
     input wire                                          i_rst; 
     input wire                                          idv;
@@ -35,16 +23,12 @@ module ravil_memory
 
     // regs for register memory
     reg                                                 r_iwr_en='0; // Enables work of register memory
+    // reg [$clog2(pDEPTH_RAM)-1:0]                        r_iw_addr='0;
     reg [$clog2(pDEPTH_RAM)-1:0]                        r_counter_adr='0;
     reg [$clog2(pDEPTH_RAM)-1:0]                        r_counter_len='0;//Calculates lenght of packet
     reg [$clog2(pDEPTH_RAM)-1:0]                        r_read_counter='0;
 
     reg [$clog2(pDEPTH_RAM)-1:0]                        r_read_pointer='0;
-    reg [$clog2(pDEPTH_RAM)-1:0]                        r_start_of_packet='0;
-
-    //regs for MAC
-
-    //integer                                             i;
     
     // regs for FIFO memory
     reg                                                 r_FIFO_ird='0; // Enables FIFO to read
@@ -69,7 +53,7 @@ module ravil_memory
         .or_data                (o_FIFO)
     );
 
-    reg_file   
+    reg_file   //8 Kbit
     #(
         .pBITS                  (pDATA_WIDTH),          
         .pWIDHT                 (pDEPTH_RAM)
@@ -84,7 +68,6 @@ module ravil_memory
         .or_data                (o_reg)                 //Output of reg memory
     );
 
-
     always @* begin
         case(rWR_state)
             lpWAIT:   rWR_state_next = lpWRITE; //waiting for packets
@@ -93,10 +76,10 @@ module ravil_memory
         endcase
     end
 
-    always @(posedge iclk) begin        //Write
+    always @(posedge iclk) begin
         case(rWR_state)
         lpWAIT: begin 
-            if (idv & (iFSM_state==lpDELIMETER) & !i_error) begin
+            if (idv & (iFSM_state==3'b010) & !i_error) begin
                 rWR_state<=rWR_state_next;
                 r_iwr_en<=1'b1;
             end
@@ -111,7 +94,8 @@ module ravil_memory
             end
             else begin  //later think about overflow
                 r_counter_adr<=r_counter_adr+1;
-                r_counter_len<=r_counter_len+1;    
+                r_counter_len<=r_counter_len+1;
+                //r_iw_addr<= r_counter_adr;
             end
             end
             end
@@ -130,9 +114,7 @@ module ravil_memory
         endcase
     end
 
-
-         
-    always @(posedge iclk) begin        //Read
+    always @(posedge iclk) begin
         if (i_r_enable) begin
             if (r_read_counter !== 'b0) begin
                 if (r_counter_adr + 'b1 == pDEPTH_RAM) begin
@@ -143,21 +125,14 @@ module ravil_memory
                     r_read_counter <= r_read_counter - 'b1;
                     r_read_pointer <= r_read_pointer + 'b1;    
                 end
-                r_FIFO_ird<='b0; //Happens, when packet was fully read
-                r_packet_read<=1'b1;
+                r_FIFO_ird <= 'b0; //Happens, when packet was fully read
             end
             else begin
                 r_read_counter<= o_FIFO;
-                r_start_of_packet<=r_read_pointer;
-                r_FIFO_ird<='b1;
-                r_packet_read<=1'b1;
+                r_FIFO_ird <= 'b1;
             end
         end
         else 
             r_read_counter <= 'b0;
     end
-
-    assign o_read_pointer=r_start_of_packet;
-    assign o_packet_read=r_packet_read;
-
 endmodule

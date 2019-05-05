@@ -1,3 +1,5 @@
+`include "header.v"
+
 module ravil_memory_tb();
 
     wire [7:0] wgmii_data;

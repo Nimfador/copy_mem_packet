@@ -1,16 +1,6 @@
 `include "header.v"
 
 module ravil_memory  
-    #(
-        parameter pDATA_WIDTH        = 8,                     
-                  pMIN_PACKET_LENGHT = 64,
-                  pMAX_PACKET_LENGHT = 1536,
-                  pADRESS_WIDTH      = 14,
-                  pADRESS_REGS       = 2**pADRESS_WIDTH/pADRESS_WIDTH,
-                  pFIFO_WIDTH        = $clog2(pMAX_PACKET_LENGHT),
-                  pDEPTH_RAM         = 2*pMAX_PACKET_LENGHT,
-                  pFIFO_DEPTH        = pDEPTH_RAM/pMIN_PACKET_LENGHT 
-    )
 
 (o_FIFO, o_reg, o_read_pointer, o_packet_read, iclk, i_rst, idv, i_error, irx_d, iFSM_state, i_r_enable); 
     output wire [pFIFO_WIDTH-1:0]                       o_FIFO;
@@ -50,10 +40,6 @@ module ravil_memory
     wire                                                r_FIFO_ofull='0;
      
     fifo
-    #(
-        .pBITS                  (pFIFO_WIDTH),         
-        .pWIDHT                 (pFIFO_DEPTH)          
-    ) 
         length_of_packet
     (
         .iclk                   (iclk),
@@ -66,11 +52,7 @@ module ravil_memory
         .or_data                (o_FIFO)
     );
 
-    reg_file   
-    #(
-        .pBITS                  (pDATA_WIDTH),          
-        .pWIDHT                 (pDEPTH_RAM)
-    ) 
+    reg_file
         memory_for_packet
     (
         .iclk                   (iclk),
