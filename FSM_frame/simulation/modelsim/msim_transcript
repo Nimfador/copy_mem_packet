@@ -1,0 +1,54 @@
+# Reading C:/altera/91sp2/modelsim_ase/tcl/vsim/pref.tcl 
+# do FSM_frame_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\91sp2\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\91sp2\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/91sp2/quartus/MICRAN/FSM_frame {C:/altera/91sp2/quartus/MICRAN/FSM_frame/FSM_frame.v}
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module FSM_frame
+# 
+# Top level modules:
+# 	FSM_frame
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/91sp2/quartus/MICRAN/FSM_frame/simulation/modelsim {C:/altera/91sp2/quartus/MICRAN/FSM_frame/simulation/modelsim/FSM_frame.vt}
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module FSM_frame_vlg_tst
+# 
+# Top level modules:
+# 	FSM_frame_vlg_tst
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L stratixii_ver -L rtl_work -L work -voptargs="+acc" FSM_frame_vlg_tst
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L stratixii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps FSM_frame_vlg_tst 
+# Loading work.FSM_frame_vlg_tst
+# Loading work.FSM_frame
+# ** Warning: (vsim-3009) [TSCALE] - Module 'FSM_frame' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /FSM_frame_vlg_tst/i1
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body
+# run -all
+# Running testbench
+# Break key hit 
+# Break in Module FSM_frame_vlg_tst at C:/altera/91sp2/quartus/MICRAN/FSM_frame/simulation/modelsim/FSM_frame.vt line 56
+# Simulation Breakpoint: Break in Module FSM_frame_vlg_tst at C:/altera/91sp2/quartus/MICRAN/FSM_frame/simulation/modelsim/FSM_frame.vt line 56
+# MACRO ./FSM_frame_run_msim_rtl_verilog.do PAUSED at line 17
+vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L stratixii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps work.FSM_frame_vlg_tst work.FSM_frame
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L stratixii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps work.FSM_frame_vlg_tst work.FSM_frame 
+# Loading work.FSM_frame_vlg_tst
+# Loading work.FSM_frame
+# ** Warning: (vsim-3009) [TSCALE] - Module 'FSM_frame' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /FSM_frame_vlg_tst/i1
+run
+# Running testbench
+run
+run

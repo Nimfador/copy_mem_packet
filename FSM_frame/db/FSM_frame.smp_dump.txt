@@ -1,0 +1,22 @@
+
+State Machine - |FSM_frame|rcurst
+Name rcurst.stFCS rcurst.stDATA rcurst.stLENTYPE rcurst.stSADDR rcurst.stDADDR rcurst.stSFD rcurst.stPREAMBLE rcurst.stIGP 
+rcurst.stIGP 0 0 0 0 0 0 0 0 
+rcurst.stPREAMBLE 0 0 0 0 0 0 1 1 
+rcurst.stSFD 0 0 0 0 0 1 0 1 
+rcurst.stDADDR 0 0 0 0 1 0 0 1 
+rcurst.stSADDR 0 0 0 1 0 0 0 1 
+rcurst.stLENTYPE 0 0 1 0 0 0 0 1 
+rcurst.stDATA 0 1 0 0 0 0 0 1 
+rcurst.stFCS 1 0 0 0 0 0 0 1 
+
+State Machine - |FSM_frame|rnextst
+Name rnextst.stFCS rnextst.stDATA rnextst.stLENTYPE rnextst.stSADDR rnextst.stDADDR rnextst.stSFD rnextst.stPREAMBLE rnextst.stIGP 
+rnextst.stIGP 0 0 0 0 0 0 0 0 
+rnextst.stPREAMBLE 0 0 0 0 0 0 1 1 
+rnextst.stSFD 0 0 0 0 0 1 0 1 
+rnextst.stDADDR 0 0 0 0 1 0 0 1 
+rnextst.stSADDR 0 0 0 1 0 0 0 1 
+rnextst.stLENTYPE 0 0 1 0 0 0 0 1 
+rnextst.stDATA 0 1 0 0 0 0 0 1 
+rnextst.stFCS 1 0 0 0 0 0 0 1 

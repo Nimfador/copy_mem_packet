@@ -1,0 +1,37 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\91sp2\quartus\MICRAN\FSM_frame\simulation\modelsim
+vFSM_frame
+Imh;;XzKgc<5=;>JB?X<?=2
+V5fSd_]ZiYCPCRjgd86Bg]0
+w1557064243
+8C:/altera/91sp2/quartus/MICRAN/FSM_frame/FSM_frame.v
+FC:/altera/91sp2/quartus/MICRAN/FSM_frame/FSM_frame.v
+L0 1
+Z1 OV;L;6.5b;42
+r1
+31
+Z2 o-vlog01compat -work work -O0
+n@f@s@m_frame
+!s100 ek`@=cn]ATiI>g638XUOm3
+!s85 0
+!s101 -O0
+!s92 -vlog01compat -work work +incdir+C:/altera/91sp2/quartus/MICRAN/FSM_frame -O0
+vFSM_frame_vlg_tst
+!s100 j1nM58m2iGU]?K^n_4iX31
+I[_[j`cD@i_G6POLde[<AG2
+V@kJ7[DHE[402dJUF8fZKc1
+w1557064062
+8C:/altera/91sp2/quartus/MICRAN/FSM_frame/simulation/modelsim/FSM_frame.vt
+FC:/altera/91sp2/quartus/MICRAN/FSM_frame/simulation/modelsim/FSM_frame.vt
+L0 2
+R1
+r1
+!s85 0
+31
+!s101 -O0
+R2
+!s92 -vlog01compat -work work +incdir+C:/altera/91sp2/quartus/MICRAN/FSM_frame/simulation/modelsim -O0
+n@f@s@m_frame_vlg_tst

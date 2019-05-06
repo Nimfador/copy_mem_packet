@@ -1,0 +1,60 @@
+`timescale 1 ps/ 1 ps
+module FSM_frame_vlg_tst();
+
+// test vector input registers
+reg iclk;
+reg ienable;
+reg [10:0] ilen;
+reg [31:0] ishift_reg;
+integer i=1;
+// wires                                               
+wire [2:0]  ost;      
+wire [7:0] odata_byte;                  
+FSM_frame i1 (
+	.iclk(iclk),
+	.ienable(ienable),
+	.ilen(ilen),
+	.ishift_reg(ishift_reg),
+	.ost(ost),
+	.odata_byte(odata_byte)
+);
+initial                                                
+begin                                                                                       
+$display("Running testbench");     
+ienable <=1;
+ilen <=4;
+iclk <=1;     
+ishift_reg<=0;         
+end  
+always @(posedge iclk)
+begin
+	if (ost == 6) begin
+		if(i==0)
+			begin
+				ishift_reg<=0;
+			end
+		else	
+			if(i==1)
+			begin
+				ishift_reg<=18;
+			end
+		else	if(i==2)
+			begin
+				ishift_reg<=213;
+			end
+		else	if(i==3)
+			begin
+				ishift_reg<=80;
+			end
+			i=i+1;
+		//ilen=$urandom_range(256,47);  
+	end
+end
+//тактирующий сигнал
+always                                                        
+begin                                                                   
+#10  iclk =  !iclk;                             
+end    
+endmodule
+
+
