@@ -1,0 +1,18 @@
+C:\Users\User\Desktop\crc32\crc32\bin\Debug\crc32.exe.config
+C:\Users\User\Desktop\crc32\crc32\bin\Debug\crc32.exe
+C:\Users\User\Desktop\crc32\crc32\bin\Debug\crc32.pdb
+C:\Users\User\Desktop\crc32\crc32\obj\Debug\crc32.exe
+C:\Users\User\Desktop\crc32\crc32\obj\Debug\crc32.pdb
+C:\Users\User\Desktop\crc32\crc32\obj\Debug\crc32.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\crc32 — копия\crc32\bin\Debug\crc32.exe.config
+C:\Users\User\Desktop\crc32 — копия\crc32\obj\Debug\crc32.exe
+C:\Users\User\Desktop\crc32 — копия\crc32\obj\Debug\crc32.pdb
+C:\Users\User\Desktop\crc32 — копия\crc32\bin\Debug\crc32.exe
+C:\Users\User\Desktop\crc32 — копия\crc32\bin\Debug\crc32.pdb
+C:\Users\User\Desktop\crc32 — копия\crc32\obj\Debug\crc32.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\crc32 заработало\crc32\bin\Debug\crc32.exe.config
+C:\Users\User\Desktop\crc32 заработало\crc32\obj\Debug\crc32.exe
+C:\Users\User\Desktop\crc32 заработало\crc32\obj\Debug\crc32.pdb
+C:\Users\User\Desktop\crc32 заработало\crc32\bin\Debug\crc32.exe
+C:\Users\User\Desktop\crc32 заработало\crc32\bin\Debug\crc32.pdb
+C:\Users\User\Desktop\crc32 заработало\crc32\obj\Debug\crc32.csprojResolveAssemblyReference.cache
