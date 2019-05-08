@@ -18,6 +18,7 @@ module copy_packet_to_mem
     input wire [pFSM_BUS_WIDHT-1:0]         iframe_state,
 
     input wire                              ird_en,
+    input wire                              imem_ptr,               // add pointer to mem RB
 
     output wire                             oempty,
     output wire                             ofull,

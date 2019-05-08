@@ -1,6 +1,6 @@
 module mac_mem_tb;
     parameter pTIME =  300,
-              pCLK_PER_SEC = 125_000_000, 
+              pCLK_PER_SEC = 125_000_00, 
               pNUM_PORTS = 4, 
               pADDR_WIDTH = 14,
               pDATA_DEPTH =  2**pADDR_WIDTH;
@@ -48,8 +48,9 @@ module mac_mem_tb;
     initial begin
         // write data from memory to module 
         // 10 firstly than pause and remaining 90
-        #1 clk = 0;
+        clk = 0;
         wr_en = 1;
+        #1
         for (int i=0; i<10; i++) begin
             #2 source_addr = test_mem_array[i][$clog2(pNUM_PORTS)+$clog2(pTIME)-1:$clog2(pTIME)-2];
             port_num_in = test_mem_array[i][$clog2(pTIME)-1:0];

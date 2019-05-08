@@ -13,19 +13,23 @@ module mac_mem
         input wire [pADDR_WIDTH-1:0]            ida,
         input wire                              iwr_en,
 
+        
         output reg [$clog2(pNUM_PORTS)-1:0]     opnum,
         output reg                              oready
     );
 
     // register for inner sram module
-    reg [pADDR_WIDTH-1:0]                       raddr_wr = 'b0;
-    reg [pADDR_WIDTH-1:0]                       raddr_rd = 'b0;
-    reg                                         rwr_en   = 'b0;
-    reg [$clog2(pNUM_PORTS)+$clog2(pTIME)-1:0]  rdata_wr = 'b0;
-    wire [$clog2(pNUM_PORTS)+$clog2(pTIME)-1:0]  rdata_rd;
+    reg [pADDR_WIDTH-1:0]                        raddr_wr = 'b0;
+    reg [pADDR_WIDTH-1:0]                        raddr_rd = 'b0;
+    reg                                          rwr_en   = 'b0;
+    reg [$clog2(pNUM_PORTS)+$clog2(pTIME)-1:0]   rdata_wr = 'b0;
 
+    reg [$clog2(pNUM_PORTS)+$clog2(pTIME)-1:0]   rdata_rd;
+
+
+    wire[$clog2(pNUM_PORTS)+$clog2(pTIME)-1:0]   wdata_rd;
     // general counter for controling time
-    reg [$clog2(pCLK_PER_SEC)-1:0]              rtimer = pCLK_PER_SEC;                          
+    reg [$clog2(pCLK_PER_SEC)-1:0]               rtimer = pCLK_PER_SEC;                          
 
     sram 
     #(
@@ -38,7 +42,7 @@ module mac_mem
         .i_addr_r       (raddr_rd), 
         .i_write        (rwr_en),
         .i_data         (rdata_wr),
-        .o_data         (rdata_rd)
+        .o_data         (wdata_rd)
     );
 
     // count time 
@@ -52,11 +56,11 @@ module mac_mem
             if(iwr_en) begin                           
                 rwr_en <= 'b1;
                 raddr_wr <= isa;
-                rdata_wr[$clog2(pNUM_PORTS)+$clog2(pTIME)-1:$clog2(pTIME)-2] <= {ipnum, 9'd300};
+                rdata_wr /*[$clog2(pNUM_PORTS)+$clog2(pTIME)-1:$clog2(pTIME)] */ <= {ipnum, 9'd300};
             end 
             else rwr_en <= 'b0;
             raddr_rd <= ida;                        // read DA value from mem 
-            oready <= 'b0;
+            oready <= 'b1;
         end
         else  begin                                 // decrement time 
             if(rtimer % 2) begin                    // update time value
@@ -64,7 +68,7 @@ module mac_mem
                 raddr_rd <= rtimer/2;
                 raddr_wr <= rtimer/2;
                 if(raddr_rd[$clog2(pTIME)-1:0] != 0)
-                    rdata_wr <= {rdata_rd[$clog2(pNUM_PORTS)+$clog2(pTIME)-1:$clog2(pTIME)-2],
+                    rdata_wr <= {rdata_rd[$clog2(pNUM_PORTS)+$clog2(pTIME)-1:$clog2(pTIME)],
                                  rdata_rd[$clog2(pTIME)-1:0]-1};
                 else rdata_wr <= 'b0;
             end
@@ -76,6 +80,10 @@ module mac_mem
     end
 
     // output value for port
-    assign o_data = rdata_rd[$clog2(pNUM_PORTS)+$clog2(pTIME)-1:$clog2(pTIME)-2];
+    assign opnum = rdata_rd[$clog2(pNUM_PORTS)+$clog2(pTIME)-1:$clog2(pTIME)];
+
+    always @(posedge iclk) begin 
+        rdata_rd <= wdata_rd;
+    end
 
 endmodule 

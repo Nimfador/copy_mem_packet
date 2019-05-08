@@ -16,3 +16,11 @@ localparam [1:0] lpWAIT      = 2'b00,
                  lpCHECK_CRC = 2'b10;
 
 parameter        pFSM_WRITE_BUS  = 2;
+
+// Packet Memory parameters 
+parameter   pDATA_WIDTH        = 8,                     
+            pMIN_PACKET_LENGHT = 64,
+            pMAX_PACKET_LENGHT = 1536,
+            pFIFO_WIDTH        = $clog2(pMAX_PACKET_LENGHT),
+            pDEPTH_RAM         = 2*pMAX_PACKET_LENGHT,
+            pFIFO_DEPTH        = pDEPTH_RAM/pMIN_PACKET_LENGHT;

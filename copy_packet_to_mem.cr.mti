@@ -25,27 +25,6 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 Top level modules:
 	inverse_data
 
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/MAC_mem/mac_mem_tb.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/MAC_mem/mac_mem_tb.sv
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module mac_mem_tb
-
-Top level modules:
-	mac_mem_tb
-
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/memories/copy_packet_to_mem.sv
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling package copy_packet_to_mem_sv_unit
--- Compiling module copy_packet_to_mem
-
-Top level modules:
-	copy_packet_to_mem
-
-} {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/project_header.v {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/project_header.v
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
-
-Top level modules:
-	--none--
-
 } {} {}} C:/Users/DES/Documents/GitHub/copy_mem_packet/MAC_mem/MAC_to_maddr_tb.sv {1 {vlog -work work -sv -nocovercells C:/Users/DES/Documents/GitHub/copy_mem_packet/MAC_mem/MAC_to_maddr_tb.sv
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 -- Compiling module MAC_to_maddr_tb

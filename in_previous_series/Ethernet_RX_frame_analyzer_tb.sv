@@ -36,19 +36,19 @@ module Ethernet_RX_frame_analyzer_tb();
         .opkt_cnt       ()
     );
 
-    Ethernet_RX_Frame_analyzer_4cd
-    DUT
-    (
-        .i_rx_clk               (iclk),
-        .i_rx_dv                (wgmii_rx_val),
-        .i_rx_er                (reset),
-        .i_rx_d                 (wgmii_data),
-        .o_fsm_state            (o_fsm_state),
-        .o_fsm_state_changed    (o_fsm_state_ch),
-        .o_rx_dv_4cd            (o_rx_dv_4cd),
-        .o_rx_er_4cd            (o_rx_er_4cd),
-        .o_rx_d4cd              (o_rx_d4cd)
-    );   
+    //Ethernet_RX_Frame_analyzer_4cd
+    //DUT
+    //(
+    //    .i_rx_clk               (iclk),
+    //    .i_rx_dv                (wgmii_rx_val),
+    //    .i_rx_er                (reset),
+    //    .i_rx_d                 (wgmii_data),
+    //    .o_fsm_state            (o_fsm_state),
+    //    .o_fsm_state_changed    (o_fsm_state_ch),
+    //    .o_rx_dv_4cd            (o_rx_dv_4cd),
+    //    .o_rx_er_4cd            (o_rx_er_4cd),
+    //    .o_rx_d4cd              (o_rx_d4cd)
+    //);   
 
     Ethernet_RX_frame_5cd
     DUT5cd

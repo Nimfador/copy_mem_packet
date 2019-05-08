@@ -122,6 +122,26 @@ n@ethernet_@r@x_frame_5cd
 !s100 AMP98<n_4GIWV<6I2@RFh0
 !s85 0
 !s101 -O0
+vEthernet_RX_frame_analyzer_tb
+R9
+R1
+!s100 U>XPBc_aV2obndEM8DB::1
+I<miY:7<eZ6YzKnXOVLb382
+V^Ij8VNa<R5Fdg]SX8l47X3
+S1
+R2
+w1557151176
+8C:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/Ethernet_RX_frame_analyzer_tb.sv
+FC:/Users/DES/Documents/GitHub/copy_mem_packet/in_previous_series/Ethernet_RX_frame_analyzer_tb.sv
+L0 1
+R6
+r1
+!s85 0
+31
+!s101 -O0
+R7
+R8
+n@ethernet_@r@x_frame_analyzer_tb
 vfifo
 IEMf:oedZjIObRA?KXKNd00
 VbITIIjXWhl7<IJ18S8<`k1
@@ -160,11 +180,11 @@ R8
 vmac_mem
 R9
 R1
-IEHJdmOKZcYkgKd^@CGRF_1
+IF4e9>0Pn?d[jzXm]WRnmg3
 V>c]S9UCk[;FR3?ak1Y]_93
 S1
 R2
-w1556627881
+w1556780412
 8C:/Users/DES/Documents/GitHub/copy_mem_packet/MAC_mem/mac_mem.sv
 FC:/Users/DES/Documents/GitHub/copy_mem_packet/MAC_mem/mac_mem.sv
 L0 1
@@ -173,28 +193,28 @@ r1
 31
 R7
 R8
-!s100 :BEeh]<L[12iN`j]7;1oc0
+!s100 ON0U[6EW[0U6CdPRd?`EZ1
 !s85 0
 !s101 -O0
 vmac_mem_tb
 R9
 R1
-!s100 Jgc7]l7H`TPB@ZS;]TBiZ1
-Io^lazOme8JoTgA=Q:l@Y60
-Vi=o]hUZ0nZ[HWMKnd8f@b2
+IWWbMnFmH0TC<z[f<ni]132
+Vf8?IIL7Le]K17Tm0BZnfI1
 S1
 R2
-w1556633441
+w1556700980
 8C:/Users/DES/Documents/GitHub/copy_mem_packet/MAC_mem/mac_mem_tb.sv
 FC:/Users/DES/Documents/GitHub/copy_mem_packet/MAC_mem/mac_mem_tb.sv
 L0 1
 R6
 r1
-!s85 0
 31
-!s101 -O0
 R7
 R8
+!s100 8>jfQN5IP5eBP:W2YGL@F2
+!s85 0
+!s101 -O0
 vMAC_to_maddr
 R9
 R1
